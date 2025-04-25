@@ -1,0 +1,130 @@
+/* Базовые стили */
+.navbar {
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.nav-link {
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-blue);
+}
+
+/* Десктопная версия */
+@media (min-width: 768px) {
+  .navbar {
+    position: fixed;
+    left: 0;
+    top: 72px;
+    bottom: 0;
+    width: 200px;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 1rem;
+  }
+}
+
+/* Мобильная версия */
+@media (max-width: 767px) {
+  .navbar {
+    position: fixed;
+    bottom: -100%;
+    right: 20px;
+    width: auto;
+    min-width: 200px;
+    height: auto;
+    overflow: hidden;
+    z-index: 998;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+  }
+
+  .navbar.open {
+    bottom: 80px;
+    padding: 1rem;
+  }
+
+  .navbar-toggle {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .mobile .nav-link {
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin: 2px 0;
+  }
+
+  .mobile .nav-link.active {
+    color: var(--black);
+    background-color: transparent;
+    font-weight: 500;
+  }
+}
+
+.nav-link {
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  color: var(--primary-blue);
+  background-color: var(--light-gray);
+}
+
+.nav-link.active {
+  color: var(--white);
+  background-color: var(--primary-blue);
+}
+
+.nav-link.active:hover {
+  background-color: var(--dark-blue);
+}

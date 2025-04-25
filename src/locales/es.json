@@ -1,0 +1,72 @@
+{
+  "header": {
+    "registerButton": "Registrarse",
+    "loginButton": "Iniciar sesión",
+    "logoutButton": "Cerrar sesión"
+  },
+  "common": {
+    "welcome": "Bienvenido",
+    "username": "Nombre de usuario",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "learningLanguage": "Idioma de aprendizaje",
+    "nativeLanguage": "Idioma nativo",
+    "tryAgain": "Intentar de nuevo",
+    "unknow": "Desconocido"
+  },
+  "validation": {
+    "usernameRequired": "Nombre de usuario requerido",
+    "usernameLength": "El nombre debe tener 3-20 caracteres",
+    "emailRequired": "Correo electrónico requerido",
+    "emailInvalid": "Correo electrónico inválido",
+    "passwordRequired": "Contraseña requerida",
+    "passwordLength": "La contraseña debe tener 8-16 caracteres",
+    "chooseLanguage": "Elegir idioma"
+  },
+  "registration": {
+    "chooseLearningLanguage": "Seleccione un idioma de aprendizaje",
+    "chooseNativeLanguage": "Seleccione un idioma nativo",
+    "errorLaunchLanguages": "Error al cargar idiomas. Actualice la página",
+    "errorOfRegistration": "Error de registro",
+    "registrationLabel": "Registro",
+    "registerButton": "Registrarse",
+    "loadingLanguages": "Cargando idiomas disponibles..."  
+  },
+  "login": {
+    "errorOfLogin": "Error de inicio de sesión",
+    "labelEnter": "Iniciar sesión",
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "loginButton": "Iniciar sesión",
+    "usernameRequired": "Nombre de usuario requerido",
+    "usernameLength": "El nombre debe tener 3-20 caracteres",
+    "passwordRequired": "Contraseña requerida",
+    "passwordLength": "La contraseña debe tener 8-16 caracteres" 
+  },
+  "navbar": {
+    "main": "Inicio",
+    "profile": "Perfil",
+    "folders": "Carpetas",
+    "add": "Añadir palabra"
+  },
+  "home": {
+    "welcomeHeader": "¡Bienvenido a la aplicación de aprendizaje de idiomas!",
+    "test": "Aprende palabras nuevas y mejora tus habilidades",
+    "registerButton": "Registrarse",
+    "loginButton": "Iniciar sesión"
+  },
+  "profile": {
+    "errorLoading": "Error al cargar el perfil",
+    "loading": "Cargando perfil",
+    "title": "Perfil",
+    "editButton": "Editar perfil",
+    "noData": "No se recibieron datos del perfil",
+    "errorUpdating": "Error al actualizar el perfil",
+    "editTitle": "Editar datos del perfil",
+    "updateSuccess": "",
+    "passwordPlaceholder": "Rellene para actualizar",
+    "selectLanguage": "Seleccionar idioma",
+    "saveButton": "Guardar cambios",
+    "cancelButton": "Atrás"
+  }
+}

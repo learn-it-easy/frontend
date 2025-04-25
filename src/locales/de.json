@@ -1,0 +1,72 @@
+{
+  "header": {
+    "registerButton": "Registrieren",
+    "loginButton": "Anmelden",
+    "logoutButton": "Abmelden"
+  },
+  "common": {
+    "welcome": "Willkommen",
+    "username": "Benutzername",
+    "email": "Email",
+    "password": "Passwort",
+    "learningLanguage": "Lernsprache",
+    "nativeLanguage": "Muttersprache",
+    "tryAgain": "Erneut versuchen",
+    "unknow": "Unbekannt"
+  },
+  "validation": {
+    "usernameRequired": "Benutzername erforderlich",
+    "usernameLength": "Benutzername muss 3-20 Zeichen haben",
+    "emailRequired": "Email erforderlich",
+    "emailInvalid": "Ungültige Email",
+    "passwordRequired": "Passwort erforderlich",
+    "passwordLength": "Passwort muss 8-16 Zeichen haben",
+    "chooseLanguage": "Sprache auswählen"
+  },
+  "registration": {
+    "chooseLearningLanguage": "Bitte wählen Sie eine Lernsprache aus",
+    "chooseNativeLanguage": "Bitte wählen Sie eine Muttersprache aus",
+    "errorLaunchLanguages": "Sprachliste konnte nicht geladen werden. Bitte Seite neu laden",
+    "errorOfRegistration": "Registrierungsfehler",
+    "registrationLabel": "Registrierung",
+    "registerButton": "Registrieren",
+    "loadingLanguages": "Lade verfügbare Sprachen..."  
+  },
+  "login": {
+    "errorOfLogin": "Anmeldefehler",
+    "labelEnter": "Anmeldung",
+    "username": "Benutzername",
+    "password": "Passwort",
+    "loginButton": "Anmelden",
+    "usernameRequired": "Benutzername erforderlich",
+    "usernameLength": "Benutzername muss 3-20 Zeichen haben",
+    "passwordRequired": "Passwort erforderlich",
+    "passwordLength": "Passwort muss 8-16 Zeichen haben" 
+  },
+  "navbar": {
+    "main": "Hauptseite",
+    "profile": "Profil",
+    "folders": "Ordner",
+    "add": "Wort hinzufügen"
+  },
+  "home": {
+    "welcomeHeader": "Willkommen zur Web-App zum Fremdsprachenlernen!",
+    "test": "Lernen Sie neue Wörter und verbessern Sie Ihre Fähigkeiten",
+    "registerButton": "Registrieren",
+    "loginButton": "Anmelden"
+  },
+  "profile": {
+    "errorLoading": "Fehler beim Laden des Profils",
+    "loading": "Profil wird geladen",
+    "title": "Profil",
+    "editButton": "Profil bearbeiten",
+    "noData": "Keine Profildaten erhalten",
+    "errorUpdating": "Fehler beim Aktualisieren des Profils",
+    "editTitle": "Profildaten bearbeiten",
+    "updateSuccess": "",
+    "passwordPlaceholder": "Ausfüllen zum Aktualisieren",
+    "selectLanguage": "Sprache auswählen",
+    "saveButton": "Änderungen speichern",
+    "cancelButton": "Zurück"
+  }
+}

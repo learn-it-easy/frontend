@@ -1,0 +1,75 @@
+export const SUPPORTED_LANGUAGES = ['ru', 'en'] as const;
+export type LanguageCode = typeof SUPPORTED_LANGUAGES[number];
+
+export interface Translation {
+  header: {
+    registerButton: string;
+    loginButton: string;
+    logoutButton: string;
+  };
+  common: {
+    welcome: string;
+    username: string;
+    email: string;
+    password: string;
+    learningLanguage: string;
+    nativeLanguage: string;
+    tryAgain: string;
+    unknow: string;
+  };
+  validation: {
+    usernameRequired: string;
+    usernameLength: string;
+    emailRequired: string;
+    emailInvalid: string;
+    passwordRequired: string;
+    passwordLength: string;
+    chooseLanguage: string;
+  }
+  registration: {    
+    chooseLearningLanguage: string;
+    chooseNativeLanguage: string;
+    errorLaunchLanguages: string;
+    errorOfRegistration: string;
+    registrationLabel: string;
+    registerButton: string;
+    loadingLanguages: string;
+  };
+  login: {
+    errorOfLogin: string;
+    labelEnter: string;
+    username: string;
+    password: string;
+    loginButton: string;
+    usernameRequired: string;
+    usernameLength: string;
+    passwordRequired: string;
+    passwordLength: string; 
+  };
+  navbar: {
+    main: string;
+    profile: string;
+    folders: string;
+    add: string;
+  };
+  home: {
+    welcomeHeader: string;
+    test: string;
+    registerButton: string;
+    loginButton: string;
+  };
+  profile: {
+    errorLoading: string;
+    loading: string;
+    title: string;
+    editButton: string;
+    noData: string;
+    errorUpdating: string;
+    editTitle: string;
+    updateSuccess: string;
+    passwordPlaceholder: string;
+    selectLanguage: string;
+    saveButton: string;
+    cancelButton: string;
+  };
+}

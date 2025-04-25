@@ -1,0 +1,59 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  transition: margin-left 0.3s ease; /* Добавляем плавность */
+}
+
+/* Добавляем модификатор для авторизованного состояния */
+.home-page.authenticated {
+  margin-left: 10%; /* Совпадает с width: 10% у боковой панели */
+}
+
+.content {
+  max-width: 800px;
+  text-align: center;
+  padding: 2rem;
+}
+
+.content h1 {
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+}
+
+.content p {
+  color: var(--gray);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.auth-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.auth-link {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-blue);
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.auth-link:hover {
+  background-color: var(--dark-blue);
+}
+
+
+/* Мобильная версия */
+@media (max-width: 767px) {
+  .content {
+    text-align: center;
+    width: 380px;
+    margin-right: 1.7rem;
+  }
+}

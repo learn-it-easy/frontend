@@ -1,0 +1,129 @@
+.profile-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 8rem;
+    margin-right: 170px;
+    background: white;
+  }
+  
+  .profile-container h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  
+  .loading {
+    text-align: center;
+    margin: 3rem;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+  }
+  
+  .error {
+    color: #e74c3c;
+    text-align: center;
+    margin: 3rem;
+    padding: 1.5rem;
+    background: #fdeaea;
+    border-radius: 8px;
+  }
+  
+  .error button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  
+  .error button:hover {
+    background: #2980b9;
+  }
+  
+  .profile-info {
+    margin: 2rem 0;
+  }
+  
+  .profile-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .profile-field:last-child {
+    border-bottom: none;
+  }
+  
+  .label-profile {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+  
+  .value {
+    font-size: 1rem;
+    color: #2c3e50;
+    padding-left: 0.5rem;
+    line-height: 1.6;
+  }
+  
+  .edit-button {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 2.5rem auto 0;
+    padding: 1rem 1.5rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+  }
+  
+  .edit-button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+  }
+  
+  /* Мобильная версия */
+  
+  @media (max-width: 480px) {
+    .profile-container {
+      margin: 0.5rem;
+      padding: 1.2rem;
+      margin-top: 130px;
+      border: none;
+      box-shadow: none;
+    }
+  
+    .profile-field {
+      flex-direction: column;
+      margin-bottom: 1.2rem;
+    }
+  
+    .edit-button {
+      width: 100%;
+      max-width: none;
+    }
+  }

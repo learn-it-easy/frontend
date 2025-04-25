@@ -1,0 +1,72 @@
+{
+  "header": {
+    "registerButton": "Register",
+    "loginButton": "Login",
+    "logoutButton": "Logout"
+  },
+  "common": {
+    "welcome": "Welcome",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "learningLanguage": "Learning language",
+    "nativeLanguage": "Native language",
+    "tryAgain": "Try again",
+    "unknow": "Unknown"
+  },
+  "validation": {
+    "usernameRequired": "Username required",
+    "usernameLength": "Username must be 3-20 characters",
+    "emailRequired": "Email required",
+    "emailInvalid": "Invalid email",
+    "passwordRequired": "Password required",
+    "passwordLength": "Password must be 8-16 characters",
+    "chooseLanguage": "Choose language"
+  },
+  "registration": {
+    "chooseLearningLanguage": "Please select a learning language",
+    "chooseNativeLanguage": "Please select a native language",
+    "errorLaunchLanguages": "Failed to load language list. Please refresh the page",
+    "errorOfRegistration": "Registration error",
+    "registrationLabel": "Registration",
+    "registerButton": "Register",
+    "loadingLanguages": "Loading available languages..."  
+  },
+  "login": {
+    "errorOfLogin": "Login error",
+    "labelEnter": "Login",
+    "username": "Username",
+    "password": "Password",
+    "loginButton": "Login",
+    "usernameRequired": "Username required",
+    "usernameLength": "Username must be 3-20 characters",
+    "passwordRequired": "Password required",
+    "passwordLength": "Password must be 8-16 characters" 
+  },
+  "navbar": {
+    "main": "Main",
+    "profile": "Profile",
+    "folders": "Folders",
+    "add": "Add word"
+  },
+  "home": {
+    "welcomeHeader": "Welcome to the foreign language learning web app!",
+    "test": "Learn new words and improve your skills",
+    "registerButton": "Register",
+    "loginButton": "Login"
+  },
+  "profile": {
+    "errorLoading": "Error loading profile",
+    "loading": "Loading profile",
+    "title": "Profile",
+    "editButton": "Edit profile",
+    "noData": "No profile data received",
+    "errorUpdating": "Error updating profile",
+    "editTitle": "Edit profile data",
+    "updateSuccess": "",
+    "passwordPlaceholder": "Fill to update",
+    "selectLanguage": "Select language",
+    "saveButton": "Save changes",
+    "cancelButton": "Back"
+  }
+}

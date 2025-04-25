@@ -1,0 +1,72 @@
+{
+  "header": {
+    "registerButton": "S'inscrire",
+    "loginButton": "Se connecter",
+    "logoutButton": "Se déconnecter"
+  },
+  "common": {
+    "welcome": "Bienvenue",
+    "username": "Nom d'utilisateur",
+    "email": "Email",
+    "password": "Mot de passe",
+    "learningLanguage": "Langue d'apprentissage",
+    "nativeLanguage": "Langue maternelle",
+    "tryAgain": "Réessayer",
+    "unknow": "Inconnu"
+  },
+  "validation": {
+    "usernameRequired": "Nom d'utilisateur requis",
+    "usernameLength": "Le nom doit contenir 3-20 caractères",
+    "emailRequired": "Email requis",
+    "emailInvalid": "Email invalide",
+    "passwordRequired": "Mot de passe requis",
+    "passwordLength": "Le mot de passe doit contenir 8-16 caractères",
+    "chooseLanguage": "Choisir la langue"
+  },
+  "registration": {
+    "chooseLearningLanguage": "Veuillez choisir une langue d'apprentissage",
+    "chooseNativeLanguage": "Veuillez choisir une langue maternelle",
+    "errorLaunchLanguages": "Échec du chargement des langues. Actualisez la page",
+    "errorOfRegistration": "Erreur d'inscription",
+    "registrationLabel": "Inscription",
+    "registerButton": "S'inscrire",
+    "loadingLanguages": "Chargement des langues disponibles..."  
+  },
+  "login": {
+    "errorOfLogin": "Erreur de connexion",
+    "labelEnter": "Connexion",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "loginButton": "Se connecter",
+    "usernameRequired": "Nom d'utilisateur requis",
+    "usernameLength": "Le nom doit contenir 3-20 caractères",
+    "passwordRequired": "Mot de passe requis",
+    "passwordLength": "Le mot de passe doit contenir 8-16 caractères" 
+  },
+  "navbar": {
+    "main": "Accueil",
+    "profile": "Profil",
+    "folders": "Dossiers",
+    "add": "Ajouter un mot"
+  },
+  "home": {
+    "welcomeHeader": "Bienvenue dans l'application d'apprentissage des langues étrangères !",
+    "test": "Apprenez de nouveaux mots et améliorez vos compétences",
+    "registerButton": "S'inscrire",
+    "loginButton": "Se connecter"
+  },
+  "profile": {
+    "errorLoading": "Erreur de chargement du profil",
+    "loading": "Chargement du profil",
+    "title": "Profil",
+    "editButton": "Modifier le profil",
+    "noData": "Aucune donnée de profil reçue",
+    "errorUpdating": "Erreur de mise à jour du profil",
+    "editTitle": "Modifier les données du profil",
+    "updateSuccess": "",
+    "passwordPlaceholder": "Remplissez pour mettre à jour",
+    "selectLanguage": "Sélectionner la langue",
+    "saveButton": "Enregistrer les modifications",
+    "cancelButton": "Retour"
+  }
+}

@@ -1,0 +1,72 @@
+{
+    "header": {
+      "registerButton": "Регистрация",
+      "loginButton": "Войти",
+      "logoutButton": "Выйти"
+    },
+    "common": {
+      "welcome": "Добро пожаловать",
+      "username": "Имя пользователя",
+      "email": "Email",
+      "password": "Пароль",
+      "learningLanguage": "Изучаемый язык",
+      "nativeLanguage": "Родной язык",
+      "tryAgain": "Попробуйте снова",
+      "unknow": "Неизвестный"
+    },
+    "validation": {
+      "usernameRequired": "Заполните имя пользователя",
+      "usernameLength": "Имя пользователя должно быть от 3 до 20 символов",
+      "emailRequired": "Заполните поле email",
+      "emailInvalid": "Email не валидный",
+      "passwordRequired": "Заполните поле пароль",
+      "passwordLength": "Пароль должен быть от 8 до 16 символов",
+      "chooseLanguage": "Выберите язык"
+    },
+    "registration": {
+      "chooseLearningLanguage": "Пожалуйста, выберите изучаемый язык",
+      "chooseNativeLanguage": "Пожалуйста, выберите родной язык",
+      "errorLaunchLanguages": "Не удалось загрузить список языков. Пожалуйста, обновите страницу",
+      "errorOfRegistration": "Ошибка регистрации",
+      "registrationLabel": "Регистрация",
+      "registerButton": "Зарегистрироваться",
+      "loadingLanguages": "Загрузка доступных языков..."  
+    },
+    "login": {
+      "errorOfLogin": "Ошибка входа",
+      "labelEnter": "Вход",
+      "username": "Имя пользователя",
+      "password": "Пароль",
+      "loginButton": "Войти",
+      "usernameRequired": "Заполните имя пользователя",
+      "usernameLength": "Имя пользователя должно быть от 3 до 20 символов",
+      "passwordRequired": "Заполните поле пароль",
+      "passwordLength": "Пароль должен быть от 8 до 16 символов" 
+    },
+    "navbar": {
+      "main": "Главная",
+      "profile": "Профиль",
+      "folders": "Папки",
+      "add": "Записать слово"
+    },
+    "home": {
+      "welcomeHeader": "Добро пожаловать в веб-приложение для изучения иностранных слов!",
+      "test": "Изучайте новые слова и улучшайте свои навыки",
+      "registerButton": "Зарегистрироваться",
+      "loginButton": "Войти"
+    },
+    "profile": {
+      "errorLoading": "Ошибка загрузки профиля",
+      "loading": "Загрузка профиля",
+      "title": "Профиль",
+      "editButton": "Изменить профиль",
+      "noData": "Данные профиля не получены",
+      "errorUpdating": "Ошибка изменения профиля",
+      "editTitle": "Изменить данные профиля",
+      "updateSuccess": "",
+      "passwordPlaceholder": "Заполните поле для изменения",
+      "selectLanguage": "Выберите язык",
+      "saveButton": "Изменить данные",
+      "cancelButton": "Назад"
+    }
+}
