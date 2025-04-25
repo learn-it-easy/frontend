@@ -10,7 +10,7 @@
 /out
 
 # Cache
-.cache
+.cache 
 
 # Environment
 .env
