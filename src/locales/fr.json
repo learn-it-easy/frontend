@@ -1,6 +1,6 @@
 {
   "header": {
-    "registerButton": "S'inscrire",
+    "registerButton": "Inscription",
     "loginButton": "Se connecter",
     "logoutButton": "Se déconnecter"
   },
@@ -9,28 +9,28 @@
     "username": "Nom d'utilisateur",
     "email": "Email",
     "password": "Mot de passe",
-    "learningLanguage": "Langue d'apprentissage",
+    "learningLanguage": "Langue étudiée",
     "nativeLanguage": "Langue maternelle",
-    "tryAgain": "Réessayer",
+    "tryAgain": "Réessayez",
     "unknow": "Inconnu"
   },
   "validation": {
-    "usernameRequired": "Nom d'utilisateur requis",
-    "usernameLength": "Le nom doit contenir 3-20 caractères",
-    "emailRequired": "Email requis",
+    "usernameRequired": "Veuillez remplir le nom d'utilisateur",
+    "usernameLength": "Le nom d'utilisateur doit comporter entre 3 et 20 caractères",
+    "emailRequired": "Veuillez remplir le champ email",
     "emailInvalid": "Email invalide",
-    "passwordRequired": "Mot de passe requis",
-    "passwordLength": "Le mot de passe doit contenir 8-16 caractères",
-    "chooseLanguage": "Choisir la langue"
+    "passwordRequired": "Veuillez remplir le champ mot de passe",
+    "passwordLength": "Le mot de passe doit contenir entre 8 et 16 caractères",
+    "chooseLanguage": "Choisissez une langue"
   },
   "registration": {
-    "chooseLearningLanguage": "Veuillez choisir une langue d'apprentissage",
-    "chooseNativeLanguage": "Veuillez choisir une langue maternelle",
-    "errorLaunchLanguages": "Échec du chargement des langues. Actualisez la page",
+    "chooseLearningLanguage": "Veuillez choisir la langue étudiée",
+    "chooseNativeLanguage": "Veuillez choisir la langue maternelle",
+    "errorLaunchLanguages": "Impossible de charger la liste des langues. Veuillez actualiser la page",
     "errorOfRegistration": "Erreur d'inscription",
     "registrationLabel": "Inscription",
     "registerButton": "S'inscrire",
-    "loadingLanguages": "Chargement des langues disponibles..."  
+    "loadingLanguages": "Chargement des langues disponibles..."
   },
   "login": {
     "errorOfLogin": "Erreur de connexion",
@@ -38,10 +38,10 @@
     "username": "Nom d'utilisateur",
     "password": "Mot de passe",
     "loginButton": "Se connecter",
-    "usernameRequired": "Nom d'utilisateur requis",
-    "usernameLength": "Le nom doit contenir 3-20 caractères",
-    "passwordRequired": "Mot de passe requis",
-    "passwordLength": "Le mot de passe doit contenir 8-16 caractères" 
+    "usernameRequired": "Veuillez remplir le nom d'utilisateur",
+    "usernameLength": "Le nom d'utilisateur doit comporter entre 3 et 20 caractères",
+    "passwordRequired": "Veuillez remplir le champ mot de passe",
+    "passwordLength": "Le mot de passe doit contenir entre 8 et 16 caractères"
   },
   "navbar": {
     "main": "Accueil",
@@ -50,7 +50,7 @@
     "add": "Ajouter un mot"
   },
   "home": {
-    "welcomeHeader": "Bienvenue dans l'application d'apprentissage des langues étrangères !",
+    "welcomeHeader": "Bienvenue dans l'application web pour apprendre des langues étrangères !",
     "test": "Apprenez de nouveaux mots et améliorez vos compétences",
     "registerButton": "S'inscrire",
     "loginButton": "Se connecter"
@@ -60,13 +60,42 @@
     "loading": "Chargement du profil",
     "title": "Profil",
     "editButton": "Modifier le profil",
-    "noData": "Aucune donnée de profil reçue",
-    "errorUpdating": "Erreur de mise à jour du profil",
+    "noData": "Données du profil non reçues",
+    "errorUpdating": "Erreur lors de la modification du profil",
     "editTitle": "Modifier les données du profil",
     "updateSuccess": "",
-    "passwordPlaceholder": "Remplissez pour mettre à jour",
-    "selectLanguage": "Sélectionner la langue",
-    "saveButton": "Enregistrer les modifications",
+    "passwordPlaceholder": "Remplissez le champ pour modifier",
+    "selectLanguage": "Choisissez une langue",
+    "saveButton": "Modifier les données",
     "cancelButton": "Retour"
+  },
+  "folders": {
+    "title": "Dossiers",
+    "allFolders": "Tous",
+    "cardsCount": "Nombre de cartes",
+    "nearestReview": "Prochain révision dans",
+    "nearestReviewNow": "Peut être révisé",
+    "noReviews": "Pas de révisions",
+    "addFolder": "Ajouter un dossier",
+    "createFolder": "Créer un dossier",
+    "editFolder": "Modifier le dossier",
+    "folderNamePlaceholder": "Nom du dossier",
+    "confirmDelete": "Êtes-vous sûr ?",
+    "view": "Voir",
+    "errorLoading": "Erreur de chargement des dossiers",
+    "errorCreating": "Erreur lors de la création du dossier",
+    "errorEditing": "Erreur lors de la modification du dossier",
+    "errorDeleting": "Erreur lors de la suppression du dossier",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "previous": "Précédent",
+    "page": "Page",
+    "of": "de",
+    "next": "Suivant",
+    "cancel": "Fermer",
+    "create": "Créer",
+    "change": "Modifier",
+    "confirmDeleteTitle": "Êtes-vous sûr ?",
+    "confirmDeleteMessage": "Supprimer le dossier "
   }
 }

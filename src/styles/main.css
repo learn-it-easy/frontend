@@ -7,9 +7,11 @@
 @import './components/navbar.css';
 @import './components/auth.css';
 @import './components/loader.css';
+@import './components/modal.css';
 
 /* Pages */
 @import './pages/auth.css';
 @import './pages/home.css';
 @import './pages/profile.css';
 @import './pages/profile-change.css';
+@import './pages/folders.css';
