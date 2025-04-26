@@ -5,20 +5,7 @@ import { AxiosError } from 'axios';
 import Navbar from '../components/Navbar';
 import { useTranslation } from '../hooks/useTranslation';
 import { LanguageContext } from '../contexts/LanguageContext';
-import { ApiErrorResponse } from '../types/auth';
-
-interface ProfileData {
-  username: string;
-  email: string;
-  learningLanguageId: number;
-  nativeLanguageId: number;
-  learningLanguage?: string; 
-  nativeLanguage?: string;
-}
-
-interface HomeProps {
-    isAuthenticated: boolean;
-  }
+import { ApiErrorResponse, HomeProps, ProfileData } from '../types/auth';
 
 const Profile = ({ isAuthenticated }: HomeProps) => {
   const [profileData, setProfileData] = useState<ProfileData | null>(null);

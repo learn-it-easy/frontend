@@ -2,14 +2,10 @@ import { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { authApi } from '../api/authApi';
 import { AxiosError } from 'axios';
-import { ApiErrorResponse, LanguageDto } from '../types/auth';
+import { ApiErrorResponse, LanguageDto, RegisterProps } from '../types/auth';
 import { useTranslation } from '../hooks/useTranslation';
 import { LanguageContext } from '../contexts/LanguageContext';
 import { useValidations } from '../utils/validations';
-
-interface RegisterProps {
-  onAuthSuccess: (token: string) => void;
-}
 
 const Register = ({ onAuthSuccess }: RegisterProps) => {
   const { t } = useTranslation();

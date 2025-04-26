@@ -3,19 +3,12 @@ import { useHistory } from 'react-router-dom';
 import { authApi } from '../api/authApi';
 import { AxiosError } from 'axios';
 import Navbar from '../components/Navbar';
-import { ApiErrorResponse, LanguageDto } from '../types/auth';
+import { ApiErrorResponse, LanguageDto, HomePropsToken } from '../types/auth';
 import { useTranslation } from '../hooks/useTranslation';
 import { LanguageContext } from '../contexts/LanguageContext';
 import { useValidations } from '../utils/validations';
 
-
-interface HomeProps {
-  isAuthenticated: boolean;
-  onAuthSuccess: (token: string) => void;
-}
-
-
-const ProfileChange = ({ isAuthenticated, onAuthSuccess }: HomeProps) => {
+const ProfileChange = ({ isAuthenticated, onAuthSuccess }: HomePropsToken) => {
   const { t } = useTranslation();
   const { language } = useContext(LanguageContext);
   const history = useHistory();

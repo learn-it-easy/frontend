@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { useTranslation } from '../hooks/useTranslation';
-
-interface HomeProps {
-  isAuthenticated: boolean;
-}
+import { HomeProps } from '../types/auth';
 
 const Home = ({ isAuthenticated }: HomeProps) => {
   const { t } = useTranslation();
