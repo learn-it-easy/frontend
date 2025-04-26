@@ -9,28 +9,28 @@
     "username": "Username",
     "email": "Email",
     "password": "Password",
-    "learningLanguage": "Learning language",
-    "nativeLanguage": "Native language",
-    "tryAgain": "Try again",
+    "learningLanguage": "Learning Language",
+    "nativeLanguage": "Native Language",
+    "tryAgain": "Try Again",
     "unknow": "Unknown"
   },
   "validation": {
-    "usernameRequired": "Username required",
-    "usernameLength": "Username must be 3-20 characters",
-    "emailRequired": "Email required",
+    "usernameRequired": "Please enter a username",
+    "usernameLength": "Username must be between 3 and 20 characters",
+    "emailRequired": "Please enter an email",
     "emailInvalid": "Invalid email",
-    "passwordRequired": "Password required",
-    "passwordLength": "Password must be 8-16 characters",
-    "chooseLanguage": "Choose language"
+    "passwordRequired": "Please enter a password",
+    "passwordLength": "Password must be between 8 and 16 characters",
+    "chooseLanguage": "Please choose a language"
   },
   "registration": {
-    "chooseLearningLanguage": "Please select a learning language",
-    "chooseNativeLanguage": "Please select a native language",
-    "errorLaunchLanguages": "Failed to load language list. Please refresh the page",
+    "chooseLearningLanguage": "Please choose the language you are learning",
+    "chooseNativeLanguage": "Please choose your native language",
+    "errorLaunchLanguages": "Failed to load the list of languages. Please refresh the page",
     "errorOfRegistration": "Registration error",
     "registrationLabel": "Registration",
     "registerButton": "Register",
-    "loadingLanguages": "Loading available languages..."  
+    "loadingLanguages": "Loading available languages..."
   },
   "login": {
     "errorOfLogin": "Login error",
@@ -38,16 +38,16 @@
     "username": "Username",
     "password": "Password",
     "loginButton": "Login",
-    "usernameRequired": "Username required",
-    "usernameLength": "Username must be 3-20 characters",
-    "passwordRequired": "Password required",
-    "passwordLength": "Password must be 8-16 characters" 
+    "usernameRequired": "Please enter a username",
+    "usernameLength": "Username must be between 3 and 20 characters",
+    "passwordRequired": "Please enter a password",
+    "passwordLength": "Password must be between 8 and 16 characters"
   },
   "navbar": {
-    "main": "Main",
+    "main": "Home",
     "profile": "Profile",
     "folders": "Folders",
-    "add": "Add word"
+    "add": "Add Word"
   },
   "home": {
     "welcomeHeader": "Welcome to the foreign language learning web app!",
@@ -56,17 +56,46 @@
     "loginButton": "Login"
   },
   "profile": {
-    "errorLoading": "Error loading profile",
+    "errorLoading": "Profile loading error",
     "loading": "Loading profile",
     "title": "Profile",
-    "editButton": "Edit profile",
-    "noData": "No profile data received",
-    "errorUpdating": "Error updating profile",
-    "editTitle": "Edit profile data",
+    "editButton": "Edit Profile",
+    "noData": "Profile data not received",
+    "errorUpdating": "Profile update error",
+    "editTitle": "Edit Profile Data",
     "updateSuccess": "",
-    "passwordPlaceholder": "Fill to update",
+    "passwordPlaceholder": "Fill in to change",
     "selectLanguage": "Select language",
-    "saveButton": "Save changes",
+    "saveButton": "Update Data",
     "cancelButton": "Back"
+  },
+  "folders": {
+    "title": "Folders",
+    "allFolders": "All",
+    "cardsCount": "Number of Cards",
+    "nearestReview": "Next review in",
+    "nearestReviewNow": "Next review in",
+    "noReviews": "No reviews",
+    "addFolder": "Add Folder",
+    "createFolder": "Create Folder",
+    "editFolder": "Edit Folder",
+    "folderNamePlaceholder": "Folder Name",
+    "confirmDelete": "Are you sure?",
+    "view": "View",
+    "errorLoading": "Error loading folders",
+    "errorCreating": "Error creating folder",
+    "errorEditing": "Error editing folder",
+    "errorDeleting": "Error deleting folder",
+    "edit": "Edit",
+    "delete": "Delete",
+    "previous": "Previous",
+    "page": "Page",
+    "of": "of",
+    "next": "Next",
+    "cancel": "Close",
+    "create": "Create",
+    "change": "Change",
+    "confirmDeleteTitle": "Are you sure?",
+    "confirmDeleteMessage": "Delete folder "
   }
 }

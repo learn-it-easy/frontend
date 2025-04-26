@@ -72,4 +72,33 @@ export interface Translation {
     saveButton: string;
     cancelButton: string;
   };
+  folders: {
+    title: string;
+    allFolders: string;
+    cardsCount: string;
+    nearestReview: string;
+    nearestReviewNow: string;
+    noReviews: string;
+    addFolder: string;
+    createFolder: string;
+    editFolder: string;
+    folderNamePlaceholder: string;
+    confirmDelete: string;
+    view: string;
+    errorLoading: string;
+    errorCreating: string;
+    errorEditing: string;
+    errorDeleting: string;
+    edit: string;
+    delete: string;
+    previous: string;
+    page: string;
+    of: string;
+    next: string;
+    cancel: string;
+    create: string;
+    change: string;
+    confirmDeleteTitle: string;
+    confirmDeleteMessage: string;
+  };
 }

@@ -68,5 +68,34 @@
       "selectLanguage": "Выберите язык",
       "saveButton": "Изменить данные",
       "cancelButton": "Назад"
-    }
+    },
+    "folders": {
+      "title": "Папки",
+      "allFolders": "Все",
+      "cardsCount": "Количество карточек",
+      "nearestReview": "Ближайшее повторение через",
+      "nearestReviewNow": "Можно повторять",
+      "noReviews": "Нет повторений",
+      "addFolder": "Добавить папку",
+      "createFolder": "Создать папку",
+      "editFolder": "Редактировать папку",
+      "folderNamePlaceholder": "Название папки",
+      "confirmDelete": "Вы уверены?",
+      "view": "Просмотр",
+      "errorLoading": "Ошибка загрузки папок",
+      "errorCreating": "Ошибка создания папки",
+      "errorEditing": "Ошибка редактирования папки",
+      "errorDeleting": "Ошибка удаления папки",
+      "edit": "Изменить",
+      "delete": "Удалить",
+      "previous": "Предыдущая",
+      "page": "Страница",
+      "of": "из",
+      "next": "Следующая",
+      "cancel": "Закрыть",
+      "create": "Создать",
+      "change": "Изменить",
+      "confirmDeleteTitle": "Вы уверены?",
+      "confirmDeleteMessage": "Удалить папку "
+  }  
 }

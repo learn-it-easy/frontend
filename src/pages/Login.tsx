@@ -2,14 +2,10 @@ import { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { authApi } from '../api/authApi';
 import { AxiosError } from 'axios';
-import { ApiErrorResponse } from '../types/auth';
+import { ApiErrorResponse, LoginProps } from '../types/auth';
 import { useTranslation } from '../hooks/useTranslation';
 import { LanguageContext } from '../contexts/LanguageContext';
 import { useValidations } from '../utils/validations';
-
-interface LoginProps {
-  onAuthSuccess: (token: string) => void;
-}
 
 const Login = ({ onAuthSuccess }: LoginProps) => {
   const { t } = useTranslation();
