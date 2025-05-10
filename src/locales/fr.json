@@ -1,6 +1,6 @@
 {
   "header": {
-    "registerButton": "Inscription",
+    "registerButton": "S'inscrire",
     "loginButton": "Se connecter",
     "logoutButton": "Se déconnecter"
   },
@@ -11,22 +11,27 @@
     "password": "Mot de passe",
     "learningLanguage": "Langue étudiée",
     "nativeLanguage": "Langue maternelle",
-    "tryAgain": "Réessayez",
-    "unknow": "Inconnu"
+    "tryAgain": "Réessayer",
+    "unknow": "Inconnu",
+    "back": "Retour",
+    "create": "Créer",
+    "highlightText": "Surligner le texte",
+    "removeHihglightText": "Supprimer le surlignage",
+    "write": "Écrire"
   },
   "validation": {
-    "usernameRequired": "Veuillez remplir le nom d'utilisateur",
+    "usernameRequired": "Veuillez saisir le nom d'utilisateur",
     "usernameLength": "Le nom d'utilisateur doit comporter entre 3 et 20 caractères",
-    "emailRequired": "Veuillez remplir le champ email",
+    "emailRequired": "Veuillez saisir l'email",
     "emailInvalid": "Email invalide",
-    "passwordRequired": "Veuillez remplir le champ mot de passe",
-    "passwordLength": "Le mot de passe doit contenir entre 8 et 16 caractères",
+    "passwordRequired": "Veuillez saisir le mot de passe",
+    "passwordLength": "Le mot de passe doit comporter entre 8 et 16 caractères",
     "chooseLanguage": "Choisissez une langue"
   },
   "registration": {
     "chooseLearningLanguage": "Veuillez choisir la langue étudiée",
     "chooseNativeLanguage": "Veuillez choisir la langue maternelle",
-    "errorLaunchLanguages": "Impossible de charger la liste des langues. Veuillez actualiser la page",
+    "errorLaunchLanguages": "Échec du chargement de la liste des langues. Veuillez actualiser la page",
     "errorOfRegistration": "Erreur d'inscription",
     "registrationLabel": "Inscription",
     "registerButton": "S'inscrire",
@@ -38,19 +43,20 @@
     "username": "Nom d'utilisateur",
     "password": "Mot de passe",
     "loginButton": "Se connecter",
-    "usernameRequired": "Veuillez remplir le nom d'utilisateur",
+    "usernameRequired": "Veuillez saisir le nom d'utilisateur",
     "usernameLength": "Le nom d'utilisateur doit comporter entre 3 et 20 caractères",
-    "passwordRequired": "Veuillez remplir le champ mot de passe",
-    "passwordLength": "Le mot de passe doit contenir entre 8 et 16 caractères"
+    "passwordRequired": "Veuillez saisir le mot de passe",
+    "passwordLength": "Le mot de passe doit comporter entre 8 et 16 caractères"
   },
   "navbar": {
     "main": "Accueil",
     "profile": "Profil",
     "folders": "Dossiers",
-    "add": "Ajouter un mot"
+    "add": "Ajouter un mot",
+    "text": "Texte"
   },
   "home": {
-    "welcomeHeader": "Bienvenue dans l'application web pour apprendre des langues étrangères !",
+    "welcomeHeader": "Bienvenue dans l'application web d'apprentissage des langues étrangères !",
     "test": "Apprenez de nouveaux mots et améliorez vos compétences",
     "registerButton": "S'inscrire",
     "loginButton": "Se connecter"
@@ -61,20 +67,21 @@
     "title": "Profil",
     "editButton": "Modifier le profil",
     "noData": "Données du profil non reçues",
-    "errorUpdating": "Erreur lors de la modification du profil",
+    "errorUpdating": "Erreur de mise à jour du profil",
     "editTitle": "Modifier les données du profil",
     "updateSuccess": "",
-    "passwordPlaceholder": "Remplissez le champ pour modifier",
-    "selectLanguage": "Choisissez une langue",
-    "saveButton": "Modifier les données",
+    "passwordPlaceholder": "Remplir pour modifier",
+    "selectLanguage": "Choisir la langue",
+    "saveButton": "Mettre à jour",
     "cancelButton": "Retour"
   },
   "folders": {
     "title": "Dossiers",
     "allFolders": "Tous",
     "cardsCount": "Nombre de cartes",
-    "nearestReview": "Prochain révision dans",
-    "nearestReviewNow": "Peut être révisé",
+    "nearestReviewAt": "Prochaine révision dans",
+    "nearestReview": "Prochaine révision",
+    "nearestReviewNow": "Prêt pour la révision",
     "noReviews": "Pas de révisions",
     "addFolder": "Ajouter un dossier",
     "createFolder": "Créer un dossier",
@@ -83,9 +90,9 @@
     "confirmDelete": "Êtes-vous sûr ?",
     "view": "Voir",
     "errorLoading": "Erreur de chargement des dossiers",
-    "errorCreating": "Erreur lors de la création du dossier",
-    "errorEditing": "Erreur lors de la modification du dossier",
-    "errorDeleting": "Erreur lors de la suppression du dossier",
+    "errorCreating": "Erreur de création du dossier",
+    "errorEditing": "Erreur de modification du dossier",
+    "errorDeleting": "Erreur de suppression du dossier",
     "edit": "Modifier",
     "delete": "Supprimer",
     "previous": "Précédent",
@@ -96,6 +103,38 @@
     "create": "Créer",
     "change": "Modifier",
     "confirmDeleteTitle": "Êtes-vous sûr ?",
-    "confirmDeleteMessage": "Supprimer le dossier "
+    "confirmDeleteMessage": "Supprimer le dossier ",
+    "text": "Texte",
+    "textTranslation": "Traduction",
+    "noCardsAvailable": "Pas encore de cartes dans ce dossier",
+    "allCards": "Toutes les cartes",
+    "noFolder": "Sans dossier",
+    "confirmDeleteMessageCard": "Supprimer la carte avec le mot",
+    "folder": "Dossier"
+  },
+  "cards": {
+    "invalidImageUrl": "Entrez l'URL de l'image (jpg, png, gif, etc.)",
+    "isImage": "Image",
+    "fillRequiredFieldsText": "Remplissez le champ texte",
+    "fillRequiredFieldsTextTranslate": "Remplissez le champ traduction",
+    "notReviewCards": "Plus de cartes à réviser dans ce dossier",
+    "easy": "Facile",
+    "medium": "Moyen",
+    "hard": "Difficile",
+    "showTranslation": "Afficher la traduction",
+    "showText": "Afficher le texte",
+    "changeCard": "Modifier",
+    "placeholder": "Sélectionnez le texte et faites un clic droit / maintenez sur téléphone pour sélectionner le texte"
+  },
+  "textPage": {
+    "title": "Travail avec le texte",
+    "placeholder": "Collez le texte ici (Ctrl+V ou glisser le fichier)...",
+    "dragAndDropHint": "Glissez un fichier texte ici",
+    "usageHint": "Sélectionnez le texte et faites un clic droit / maintenez sur téléphone pour créer une carte",
+    "clearText": "Effacer le texte",
+    "readMode": "Mode lecture",
+    "editMode": "Mode édition",
+    "emptyText": "Aucun texte disponible. Ajoutez du texte pour voir.",
+    "sentencesOnPage": "Phrases par page :"
   }
 }

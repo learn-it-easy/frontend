@@ -54,26 +54,6 @@
   justify-content: space-between;
 }
 
-.save-button,
-.cancel-button {
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.save-button {
-  background: var(--green-button);
-  color: white;
-  border: none;
-}
-
-.cancel-button {
-  background: #f44336;
-  color: white;
-  border: none;
-}
 
 .error-message {
   color: #f44336;
@@ -102,10 +82,5 @@
 
   .form-actions {
     flex-direction: column;
-  }
-  
-  .save-button,
-  .cancel-button {
-    width: 100%;
   }
 }

@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { authApi } from '../api/authApi';
 import { AxiosError } from 'axios';
-import Navbar from '../components/Navbar';
 import { useTranslation } from '../hooks/useTranslation';
 import { LanguageContext } from '../contexts/LanguageContext';
 import { ApiErrorResponse, HomeProps, ProfileData } from '../types/auth';
@@ -81,7 +80,6 @@ const Profile = ({ isAuthenticated }: HomeProps) => {
 
   return (
     <div className="profile-page">
-     {isAuthenticated && <Navbar />}
       <div className="profile-container">
         <h1>{t.profile.title}</h1>
         
@@ -109,7 +107,7 @@ const Profile = ({ isAuthenticated }: HomeProps) => {
 
         <button 
           onClick={() => history.push('/profile/change')}
-          className="edit-button"
+          className="edit-button profile-button"
         >
           {t.profile.editButton}
         </button>

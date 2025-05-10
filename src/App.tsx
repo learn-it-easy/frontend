@@ -6,15 +6,34 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import ProfileChange from './pages/ProfileChange';
+import FolderCards from './pages/FolderCards';
 import { authApi } from './api/authApi';
-import Loader  from './components/Loader';
+import Loader from './components/Loader';
 import './styles/main.css';
 import Folders from './pages/Folders';
-
+import FolderCardsAll from './pages/FolderCardsAll';
+import { FoldersContext } from './contexts/FolderContext';
+import { CardsContext } from './contexts/CardContext';
+import CardReviewFolder from './pages/CardReviewFolder';
+import TextPage from './pages/TextPage';
+import Navbar from './components/Navbar';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isAuthChecked, setIsAuthChecked] = useState(false);
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
+  const [cardsRefreshTrigger, setCardsRefreshTrigger] = useState(0);
+
+
+  const refreshCards = () => {
+    setCardsRefreshTrigger(prev => prev + 1);
+    console.log('Cards refresh triggered');
+  };
+
+  const refreshFolders = () => {
+    setRefreshTrigger(prev => prev + 1);
+    console.log('Folders refresh triggered');
+  };
 
   const handleAuthSuccess = (token: string) => {
     localStorage.setItem('token', token);
@@ -29,7 +48,7 @@ function App() {
   useEffect(() => {
     const checkAuth = async () => {
       const token = localStorage.getItem('token');
-      
+
       if (token) {
         try {
           await authApi.validateToken(token);
@@ -39,7 +58,7 @@ function App() {
           setIsAuthenticated(false);
         }
       }
-      
+
       setIsAuthChecked(true);
     };
 
@@ -47,63 +66,112 @@ function App() {
   }, []);
 
 
-if (!isAuthChecked) {
+  if (!isAuthChecked) {
     return <Loader />;
   }
 
   return (
-    <BrowserRouter>
-      <div className="app">
-        <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-        <main className="main-content">
-        <Switch>
-            <Route exact path="/" render={() => (
-              <Home isAuthenticated={isAuthenticated} />
-            )} />
-            
-            <Route exact path="/register" render={() => (
-              isAuthenticated ? (
-                <Redirect to="/" />
-              ) : (
-                <Register onAuthSuccess={handleAuthSuccess} />
-              )
-            )} />
-            
-            <Route exact path="/login" render={() => (
-              isAuthenticated ? (
-                <Redirect to="/" />
-              ) : (
-                <Login onAuthSuccess={handleAuthSuccess} />
-              )
-            )} />
-            
-            <Route exact path="/profile" render={() => (
-              !isAuthenticated ? (
-                <Redirect to="/login" />
-              ) : (
-                <Profile isAuthenticated={isAuthenticated} />
-              )
-            )} />
+    <FoldersContext.Provider value={{ refreshFolders }}>
+      <CardsContext.Provider value={{ refreshCards, cardsRefreshTrigger }}>
+        <BrowserRouter>
+          <div className="app">
+            <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+            {isAuthenticated && <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />}
+            <main className="main-content">
+              <Switch>
+                <Route exact path="/" render={() => (
+                  <Home isAuthenticated={isAuthenticated} />
+                )} />
 
-            <Route exact path="/folders" render={() => (
-              !isAuthenticated ? (
-                <Redirect to="/login" />
-              ) : (
-                <Folders isAuthenticated={isAuthenticated} />
-              )
-            )} />
-            
-            <Route exact path="/profile/change" render={() => (
-              !isAuthenticated ? (
-                <Redirect to="/login" />
-              ) : (
-                <ProfileChange isAuthenticated={isAuthenticated} onAuthSuccess={handleAuthSuccess}/>
-              )
-            )} />
-          </Switch>
-        </main>
-      </div>
-    </BrowserRouter>
+                <Route exact path="/register" render={() => (
+                  isAuthenticated ? (
+                    <Redirect to="/" />
+                  ) : (
+                    <Register onAuthSuccess={handleAuthSuccess} />
+                  )
+                )} />
+
+                <Route exact path="/login" render={() => (
+                  isAuthenticated ? (
+                    <Redirect to="/" />
+                  ) : (
+                    <Login onAuthSuccess={handleAuthSuccess} />
+                  )
+                )} />
+
+                <Route exact path="/profile" render={() => (
+                  !isAuthenticated ? (
+                    <Redirect to="/login" />
+                  ) : (
+                    <Profile isAuthenticated={isAuthenticated} />
+                  )
+                )} />
+
+                <Route exact path="/folders" render={() => (
+                  !isAuthenticated ? (
+                    <Redirect to="/login" />
+                  ) : (
+                    <Folders
+                      isAuthenticated={isAuthenticated}
+                      refreshTrigger={refreshTrigger}
+                    />
+                  )
+                )} />
+
+                <Route exact path="/folders/cards" render={() => (
+                  !isAuthenticated ? (
+                    <Redirect to="/login" />
+                  ) : (
+                    <FolderCards isAuthenticated={isAuthenticated} />
+                  )
+                )} />
+
+                <Route exact path="/folders/cards/all" render={() => (
+                  !isAuthenticated ? (
+                    <Redirect to="/login" />
+                  ) : (
+                    <FolderCardsAll isAuthenticated={isAuthenticated} />
+                  )
+                )} />
+
+                <Route exact path="/review/all" render={() => (
+                  !isAuthenticated ? (
+                    <Redirect to="/login" />
+                  ) : (
+                    <CardReviewFolder isAuthenticated={isAuthenticated} />
+                  )
+                )} />
+
+                <Route exact path="/review" render={() => (
+                  !isAuthenticated ? (
+                    <Redirect to="/login" />
+                  ) : (
+                    <CardReviewFolder isAuthenticated={isAuthenticated} />
+                  )
+                )} />
+
+                <Route exact path="/text" render={() => (
+                  !isAuthenticated ? (
+                    <Redirect to="/login" />
+                  ) : (
+                    <TextPage isAuthenticated={isAuthenticated} />
+                  )
+                )} />
+
+
+                <Route exact path="/profile/change" render={() => (
+                  !isAuthenticated ? (
+                    <Redirect to="/login" />
+                  ) : (
+                    <ProfileChange isAuthenticated={isAuthenticated} onAuthSuccess={handleAuthSuccess} />
+                  )
+                )} />
+              </Switch>
+            </main>
+          </div>
+        </BrowserRouter>
+      </CardsContext.Provider>
+    </FoldersContext.Provider>
   );
 }
 

@@ -17,9 +17,20 @@
   }
 
   export interface ApiErrorResponse {
-    field: string | null;
+    field?: string;
     message: string;
-    rejectedValue: any;
+  }
+
+  export interface CardAndError {
+    field?: string;
+    message?: string;
+    cardId: number;
+    folderId?: number;
+    text: string;
+    textTranslation: string;
+    isImage: boolean;
+    mainWord: string;
+    nextReviewAt?: number[];
   }
 
   export interface LanguageDto {
@@ -74,6 +85,10 @@
     isAuthenticated: boolean;
   }
 
+  export interface FoldersProps {
+    isAuthenticated: boolean;
+    refreshTrigger?: number;
+  }
   
   export interface HomePropsToken {
   isAuthenticated: boolean;
@@ -102,4 +117,36 @@
     nativeLanguageId: number;
     learningLanguage?: string; 
     nativeLanguage?: string;
+  }
+
+  export interface Card {
+    cardId: number;
+    folderId?: number;
+    text: string;
+    textTranslation: string;
+    isImage: boolean;
+    mainWord: string;
+    nextReviewAt?: number[];
+  }
+  
+  export interface CardsResponse {
+    cards: Card[];
+    currentPage: number;
+    totalPages: number;
+    isHasNext: boolean;
+    isHasPrevious: boolean;
+  }
+  
+  export interface CardUpdateData {
+    folderId: number;
+    text: string;
+    textTranslation: string;
+    isImage: boolean;
+  }
+
+  export interface UpdateData {
+    folderId: number | null;
+    text: string;
+    textTranslation: string;
+    isImage: boolean
   }

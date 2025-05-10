@@ -12,7 +12,12 @@
       "learningLanguage": "Изучаемый язык",
       "nativeLanguage": "Родной язык",
       "tryAgain": "Попробуйте снова",
-      "unknow": "Неизвестный"
+      "unknow": "Неизвестный",
+      "back": "Назад",
+      "create": "Создать",
+      "highlightText": "Выделить текст",
+      "removeHihglightText": "Убрать выделение",
+      "write": "Записать"
     },
     "validation": {
       "usernameRequired": "Заполните имя пользователя",
@@ -47,7 +52,8 @@
       "main": "Главная",
       "profile": "Профиль",
       "folders": "Папки",
-      "add": "Записать слово"
+      "add": "Записать слово",
+      "text": "Текст"
     },
     "home": {
       "welcomeHeader": "Добро пожаловать в веб-приложение для изучения иностранных слов!",
@@ -73,7 +79,8 @@
       "title": "Папки",
       "allFolders": "Все",
       "cardsCount": "Количество карточек",
-      "nearestReview": "Ближайшее повторение через",
+      "nearestReviewAt": "Ближайшее повторение через",
+      "nearestReview": "Ближайшее повторение",
       "nearestReviewNow": "Можно повторять",
       "noReviews": "Нет повторений",
       "addFolder": "Добавить папку",
@@ -96,6 +103,38 @@
       "create": "Создать",
       "change": "Изменить",
       "confirmDeleteTitle": "Вы уверены?",
-      "confirmDeleteMessage": "Удалить папку "
-  }  
+      "confirmDeleteMessage": "Удалить папку ",
+      "text": "Текст",
+      "textTranslation": "Перевод",
+      "noCardsAvailable": "В папке ещё нет карточек",
+      "allCards": "Все карточки",
+      "noFolder": "Без папки",
+      "confirmDeleteMessageCard": "Удалить карточку со словом",
+      "folder": "Папка"
+  },
+  "cards": {
+    "invalidImageUrl": "Введите URL изображения (jpg, png, gif и т.д.)",
+    "isImage": "Изображение",
+    "fillRequiredFieldsText": "Заполните полe текста",
+    "fillRequiredFieldsTextTranslate": "Заполните поле перевода",
+    "notReviewCards": "В этой папке больше нет карточек для повторения",
+    "easy": "Легко",
+    "medium": "Нормально",
+    "hard": "Сложно",
+    "showTranslation": "Показать перевод",
+    "showText": "Показать текст",
+    "changeCard": "Изменить",
+    "placeholder": "Выделите текст и нажмите ПКМ / зажмите на телефоне для выделения текста"
+  },
+  "textPage": {
+    "title": "Работа с текстом",
+    "placeholder": "Вставьте текст сюда (Ctrl+V или перетащите файл)...",
+    "dragAndDropHint": "Перетащите текстовый файл сюда",
+    "usageHint": "Выделите текст и нажмите ПКМ / зажмите на телефоне для создания карточки",
+    "clearText": "Очистить текст",
+    "readMode": "Режим чтения",
+    "editMode": "Режим редактирования",
+    "emptyText": "Текст отсутствует. Добавьте текст для просмотра.",
+    "sentencesOnPage": "Предложений на страницу:"
+  }
 }

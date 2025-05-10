@@ -8,6 +8,8 @@
 @import './components/auth.css';
 @import './components/loader.css';
 @import './components/modal.css';
+@import './components/addModalCard.css';
+@import './components/buttons.css';
 
 /* Pages */
 @import './pages/auth.css';
@@ -15,3 +17,6 @@
 @import './pages/profile.css';
 @import './pages/profile-change.css';
 @import './pages/folders.css';
+@import './pages/folder-cards.css';
+@import './pages/card-review.css';
+@import './pages/text-page.css';
