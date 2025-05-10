@@ -12,21 +12,26 @@
     "learningLanguage": "Learning Language",
     "nativeLanguage": "Native Language",
     "tryAgain": "Try Again",
-    "unknow": "Unknown"
+    "unknow": "Unknown",
+    "back": "Back",
+    "create": "Create",
+    "highlightText": "Highlight Text",
+    "removeHihglightText": "Remove Highlight",
+    "write": "Write"
   },
   "validation": {
-    "usernameRequired": "Please enter a username",
+    "usernameRequired": "Please enter username",
     "usernameLength": "Username must be between 3 and 20 characters",
-    "emailRequired": "Please enter an email",
+    "emailRequired": "Please enter email",
     "emailInvalid": "Invalid email",
-    "passwordRequired": "Please enter a password",
+    "passwordRequired": "Please enter password",
     "passwordLength": "Password must be between 8 and 16 characters",
-    "chooseLanguage": "Please choose a language"
+    "chooseLanguage": "Choose a language"
   },
   "registration": {
-    "chooseLearningLanguage": "Please choose the language you are learning",
-    "chooseNativeLanguage": "Please choose your native language",
-    "errorLaunchLanguages": "Failed to load the list of languages. Please refresh the page",
+    "chooseLearningLanguage": "Please choose the learning language",
+    "chooseNativeLanguage": "Please choose the native language",
+    "errorLaunchLanguages": "Failed to load language list. Please refresh the page",
     "errorOfRegistration": "Registration error",
     "registrationLabel": "Registration",
     "registerButton": "Register",
@@ -38,16 +43,17 @@
     "username": "Username",
     "password": "Password",
     "loginButton": "Login",
-    "usernameRequired": "Please enter a username",
+    "usernameRequired": "Please enter username",
     "usernameLength": "Username must be between 3 and 20 characters",
-    "passwordRequired": "Please enter a password",
+    "passwordRequired": "Please enter password",
     "passwordLength": "Password must be between 8 and 16 characters"
   },
   "navbar": {
     "main": "Home",
     "profile": "Profile",
     "folders": "Folders",
-    "add": "Add Word"
+    "add": "Add Word",
+    "text": "Text"
   },
   "home": {
     "welcomeHeader": "Welcome to the foreign language learning web app!",
@@ -65,16 +71,17 @@
     "editTitle": "Edit Profile Data",
     "updateSuccess": "",
     "passwordPlaceholder": "Fill in to change",
-    "selectLanguage": "Select language",
+    "selectLanguage": "Select Language",
     "saveButton": "Update Data",
     "cancelButton": "Back"
   },
   "folders": {
     "title": "Folders",
     "allFolders": "All",
-    "cardsCount": "Number of Cards",
-    "nearestReview": "Next review in",
-    "nearestReviewNow": "Next review in",
+    "cardsCount": "Number of cards",
+    "nearestReviewAt": "Next review in",
+    "nearestReview": "Next review",
+    "nearestReviewNow": "Ready for review",
     "noReviews": "No reviews",
     "addFolder": "Add Folder",
     "createFolder": "Create Folder",
@@ -96,6 +103,38 @@
     "create": "Create",
     "change": "Change",
     "confirmDeleteTitle": "Are you sure?",
-    "confirmDeleteMessage": "Delete folder "
+    "confirmDeleteMessage": "Delete folder ",
+    "text": "Text",
+    "textTranslation": "Translation",
+    "noCardsAvailable": "No cards in this folder yet",
+    "allCards": "All cards",
+    "noFolder": "No folder",
+    "confirmDeleteMessageCard": "Delete card with word",
+    "folder": "Folder"
+  },
+  "cards": {
+    "invalidImageUrl": "Enter image URL (jpg, png, gif, etc.)",
+    "isImage": "Image",
+    "fillRequiredFieldsText": "Fill in the text field",
+    "fillRequiredFieldsTextTranslate": "Fill in the translation field",
+    "notReviewCards": "No more cards to review in this folder",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
+    "showTranslation": "Show Translation",
+    "showText": "Show Text",
+    "changeCard": "Edit",
+    "placeholder": "Highlight text and right-click / hold on phone to highlight text"
+  },
+  "textPage": {
+    "title": "Text Work",
+    "placeholder": "Paste text here (Ctrl+V or drag file)...",
+    "dragAndDropHint": "Drag a text file here",
+    "usageHint": "Highlight text and right-click / hold on phone to create a card",
+    "clearText": "Clear Text",
+    "readMode": "Read Mode",
+    "editMode": "Edit Mode",
+    "emptyText": "No text available. Add text to view.",
+    "sentencesOnPage": "Sentences per page:"
   }
 }

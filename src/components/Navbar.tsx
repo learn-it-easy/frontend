@@ -2,11 +2,26 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
+import AddCardModal from './AddCardModal';
+import { useFolders } from '../contexts/FolderContext';
 
-const Navbar = () => {
+interface HeaderProps {
+  isAuthenticated: boolean;
+  onLogout: () => void;
+}
+
+const Navbar = ({ isAuthenticated, onLogout }: HeaderProps) => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const { refreshFolders } = useFolders();
+
+
+  const handleCardAdded = () => {
+    console.log('Card added successfully');
+    refreshFolders();
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,26 +38,32 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeMobileMenu = () => {
+    if (isMobile) {
+      setIsOpen(false);
+    }
+  };
+
   return (
-     <>
+    <>
       {/* Кнопка для мобильных устройств */}
       {isMobile && (
-        <button 
-          className="navbar-toggle" 
+        <button
+          className="navbar-toggle"
           onClick={toggleNavbar}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
         </button>
       )}
-      
+
 
       <nav className={`navbar ${isOpen ? 'open' : ''} ${isMobile ? 'mobile' : ''}`}>
         <ul className="nav-list">
           <li className="nav-item">
-            <NavLink 
+            <NavLink
               exact
-              to="/" 
+              to="/"
               className="nav-link"
               activeClassName="active"
               onClick={() => isMobile && setIsOpen(false)}
@@ -55,9 +76,9 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink 
+            <NavLink
               exact
-              to="/profile" 
+              to="/profile"
               className="nav-link"
               activeClassName="active"
               onClick={() => isMobile && setIsOpen(false)}
@@ -68,11 +89,11 @@ const Navbar = () => {
             >
               {t.navbar.profile}
             </NavLink>
-           </li>
-           <li className="nav-item">
-            <NavLink 
+          </li>
+          <li className="nav-item">
+            <NavLink
               exact
-              to="/folders" 
+              to="/folders"
               className="nav-link"
               activeClassName="active"
               onClick={() => isMobile && setIsOpen(false)}
@@ -83,11 +104,23 @@ const Navbar = () => {
             >
               {t.navbar.folders}
             </NavLink>
-           </li>
-           <li className="nav-item">
-            <NavLink 
+          </li>
+          <li className="nav-item">
+            <button
+              className="nav-link add-button"
+              onClick={() => {
+                setIsAddModalOpen(true);
+                closeMobileMenu();
+              }}
+            >
+              {t.navbar.add}
+            </button>
+          </li>
+
+          <li className="nav-item">
+            <NavLink
               exact
-              to="/add" 
+              to="/text"
               className="nav-link"
               activeClassName="active"
               onClick={() => isMobile && setIsOpen(false)}
@@ -96,11 +129,18 @@ const Navbar = () => {
                 return isMobile ? match.isExact : true;
               }}
             >
-               {t.navbar.add}
+              {t.navbar.text}
             </NavLink>
-           </li>
-      </ul>
-    </nav>
+          </li>
+        </ul>
+       
+      </nav>
+
+      <AddCardModal
+          isOpen={isAddModalOpen}
+          onClose={() => setIsAddModalOpen(false)}
+          onCardAdded={handleCardAdded}
+        />
     </>
   );
 };

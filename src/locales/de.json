@@ -9,49 +9,55 @@
     "username": "Benutzername",
     "email": "E-Mail",
     "password": "Passwort",
-    "learningLanguage": "Zu lernende Sprache",
+    "learningLanguage": "Lernsprache",
     "nativeLanguage": "Muttersprache",
-    "tryAgain": "Versuchen Sie es erneut",
-    "unknow": "Unbekannt"
+    "tryAgain": "Erneut versuchen",
+    "unknow": "Unbekannt",
+    "back": "Zurück",
+    "create": "Erstellen",
+    "highlightText": "Text markieren",
+    "removeHihglightText": "Markierung entfernen",
+    "write": "Schreiben"
   },
   "validation": {
-    "usernameRequired": "Benutzername ausfüllen",
-    "usernameLength": "Der Benutzername muss zwischen 3 und 20 Zeichen lang sein",
-    "emailRequired": "E-Mail-Feld ausfüllen",
-    "emailInvalid": "E-Mail ist ungültig",
-    "passwordRequired": "Passwortfeld ausfüllen",
-    "passwordLength": "Das Passwort muss zwischen 8 und 16 Zeichen lang sein",
-    "chooseLanguage": "Sprache auswählen"
+    "usernameRequired": "Bitte Benutzernamen eingeben",
+    "usernameLength": "Benutzername muss zwischen 3 und 20 Zeichen lang sein",
+    "emailRequired": "Bitte E-Mail eingeben",
+    "emailInvalid": "Ungültige E-Mail",
+    "passwordRequired": "Bitte Passwort eingeben",
+    "passwordLength": "Passwort muss zwischen 8 und 16 Zeichen lang sein",
+    "chooseLanguage": "Sprache wählen"
   },
   "registration": {
     "chooseLearningLanguage": "Bitte wählen Sie die zu lernende Sprache",
     "chooseNativeLanguage": "Bitte wählen Sie die Muttersprache",
-    "errorLaunchLanguages": "Die Sprachliste konnte nicht geladen werden. Bitte Seite neu laden",
+    "errorLaunchLanguages": "Sprachliste konnte nicht geladen werden. Bitte Seite neu laden",
     "errorOfRegistration": "Registrierungsfehler",
     "registrationLabel": "Registrierung",
     "registerButton": "Registrieren",
     "loadingLanguages": "Verfügbare Sprachen werden geladen..."
   },
   "login": {
-    "errorOfLogin": "Fehler beim Anmelden",
-    "labelEnter": "Anmeldung",
+    "errorOfLogin": "Anmeldefehler",
+    "labelEnter": "Anmelden",
     "username": "Benutzername",
     "password": "Passwort",
     "loginButton": "Anmelden",
-    "usernameRequired": "Benutzername ausfüllen",
-    "usernameLength": "Der Benutzername muss zwischen 3 und 20 Zeichen lang sein",
-    "passwordRequired": "Passwortfeld ausfüllen",
-    "passwordLength": "Das Passwort muss zwischen 8 und 16 Zeichen lang sein"
+    "usernameRequired": "Bitte Benutzernamen eingeben",
+    "usernameLength": "Benutzername muss zwischen 3 und 20 Zeichen lang sein",
+    "passwordRequired": "Bitte Passwort eingeben",
+    "passwordLength": "Passwort muss zwischen 8 und 16 Zeichen lang sein"
   },
   "navbar": {
     "main": "Startseite",
     "profile": "Profil",
     "folders": "Ordner",
-    "add": "Wort hinzufügen"
+    "add": "Wort hinzufügen",
+    "text": "Text"
   },
   "home": {
-    "welcomeHeader": "Willkommen bei der Webanwendung zum Lernen von Fremdsprachen!",
-    "test": "Lernen Sie neue Wörter und verbessern Sie Ihre Fähigkeiten",
+    "welcomeHeader": "Willkommen bei der Web-App zum Fremdsprachenlernen!",
+    "test": "Lerne neue Wörter und verbessere deine Fähigkeiten",
     "registerButton": "Registrieren",
     "loginButton": "Anmelden"
   },
@@ -61,20 +67,21 @@
     "title": "Profil",
     "editButton": "Profil bearbeiten",
     "noData": "Profildaten nicht erhalten",
-    "errorUpdating": "Fehler beim Ändern des Profils",
+    "errorUpdating": "Fehler beim Aktualisieren des Profils",
     "editTitle": "Profildaten bearbeiten",
     "updateSuccess": "",
-    "passwordPlaceholder": "Feld zum Ändern ausfüllen",
+    "passwordPlaceholder": "Zum Ändern ausfüllen",
     "selectLanguage": "Sprache auswählen",
-    "saveButton": "Daten ändern",
+    "saveButton": "Daten aktualisieren",
     "cancelButton": "Zurück"
   },
   "folders": {
     "title": "Ordner",
     "allFolders": "Alle",
     "cardsCount": "Anzahl der Karten",
-    "nearestReview": "Nächste Wiederholung in",
-    "nearestReviewNow": "Kann wiederholt werden",
+    "nearestReviewAt": "Nächste Wiederholung in",
+    "nearestReview": "Nächste Wiederholung",
+    "nearestReviewNow": "Bereit zur Wiederholung",
     "noReviews": "Keine Wiederholungen",
     "addFolder": "Ordner hinzufügen",
     "createFolder": "Ordner erstellen",
@@ -96,6 +103,38 @@
     "create": "Erstellen",
     "change": "Ändern",
     "confirmDeleteTitle": "Sind Sie sicher?",
-    "confirmDeleteMessage": "Ordner löschen "
+    "confirmDeleteMessage": "Ordner löschen ",
+    "text": "Text",
+    "textTranslation": "Übersetzung",
+    "noCardsAvailable": "In diesem Ordner sind noch keine Karten vorhanden",
+    "allCards": "Alle Karten",
+    "noFolder": "Kein Ordner",
+    "confirmDeleteMessageCard": "Karte mit Wort löschen",
+    "folder": "Ordner"
+  },
+  "cards": {
+    "invalidImageUrl": "Geben Sie eine Bild-URL ein (jpg, png, gif usw.)",
+    "isImage": "Bild",
+    "fillRequiredFieldsText": "Füllen Sie das Textfeld aus",
+    "fillRequiredFieldsTextTranslate": "Füllen Sie das Übersetzungsfeld aus",
+    "notReviewCards": "Keine Karten mehr zur Wiederholung in diesem Ordner",
+    "easy": "Einfach",
+    "medium": "Mittel",
+    "hard": "Schwer",
+    "showTranslation": "Übersetzung anzeigen",
+    "showText": "Text anzeigen",
+    "changeCard": "Bearbeiten",
+    "placeholder": "Markieren Sie den Text und klicken Sie mit der rechten Maustaste / halten Sie auf dem Telefon gedrückt, um Text zu markieren"
+  },
+  "textPage": {
+    "title": "Textarbeit",
+    "placeholder": "Text hier einfügen (Strg+V oder Datei ziehen)...",
+    "dragAndDropHint": "Ziehen Sie eine Textdatei hierher",
+    "usageHint": "Markieren Sie Text und klicken Sie mit der rechten Maustaste / halten Sie auf dem Telefon gedrückt, um eine Karte zu erstellen",
+    "clearText": "Text löschen",
+    "readMode": "Lesemodus",
+    "editMode": "Bearbeitungsmodus",
+    "emptyText": "Kein Text vorhanden. Fügen Sie Text zum Anzeigen hinzu.",
+    "sentencesOnPage": "Sätze pro Seite:"
   }
 }

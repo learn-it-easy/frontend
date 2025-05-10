@@ -7,14 +7,16 @@ import {
   ApiErrorResponse,
   AllFolderData,
   Folder,
-  HomeProps
+  FoldersProps
 } from '../types/auth';
 import Modal from '../components/Modal';
-import Navbar from '../components/Navbar';
 import Loader from '../components/Loader';
 import { authApi } from '../api/authApi';
+import { DeleteConfirmationModal } from '../components/DeleteConfirmationModal';
 
-const Folders = ({ isAuthenticated }: HomeProps) => {
+
+
+const Folders = ({ isAuthenticated, refreshTrigger }: FoldersProps) => {
   const [folders, setFolders] = useState<Folder[]>([]);
   const [allFolderData, setAllFolderData] = useState<AllFolderData | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,6 +37,10 @@ const Folders = ({ isAuthenticated }: HomeProps) => {
   const deleteModalRef = useRef<HTMLDivElement>(null);
   const [folderToDeleteName, setFolderToDeleteName] = useState<string>('');
 
+
+  const getAuthToken = () => {
+    return localStorage.getItem('token');
+  };
 
   const fetchFolders = async (page: number) => {
     try {
@@ -59,7 +65,6 @@ const Folders = ({ isAuthenticated }: HomeProps) => {
       setTotalPages(foldersResponse.totalPages);
     } catch (err) {
       console.error('Error fetching folders:', err);
-      const axiosError = err as AxiosError<ApiErrorResponse>;
       setError(t.folders.errorLoading);
     } finally {
       setLoading(false);
@@ -92,6 +97,24 @@ const Folders = ({ isAuthenticated }: HomeProps) => {
     setFolderToDelete(null);
   };
 
+  const handleFolderClick = (folderId?: number) => {
+    const token = getAuthToken();
+    if (!token) {
+      history.push('/login');
+      return;
+    }
+
+    // Для всех карточек
+    if (!folderId) {
+      history.push('/review/all');
+      return;
+    }
+
+    // Для конкретной папки
+    history.push(`/review?folderId=${folderId}`);
+  };
+
+
   useEffect(() => {
     if (showCreateModal && createFolderInputRef.current) {
       createFolderInputRef.current.focus();
@@ -116,9 +139,25 @@ const Folders = ({ isAuthenticated }: HomeProps) => {
     }
   };
 
+  const handleViewFolderCards = (e: React.MouseEvent, folderId?: number) => {
+    e.stopPropagation(); // Останавливаем всплытие события
+    const token = getAuthToken();
+    if (!token) {
+      history.push('/login');
+      return;
+    }
+
+    const url = folderId
+      ? `/folders/cards?folderId=${folderId}`
+      : '/folders/cards/all';
+
+    history.push(url);
+  };
+
+
   useEffect(() => {
     fetchFolders(currentPage);
-  }, [currentPage, language]);
+  }, [currentPage, language, refreshTrigger]);
 
   const handleCreateFolder = async () => {
     try {
@@ -170,7 +209,6 @@ const Folders = ({ isAuthenticated }: HomeProps) => {
 
   return (
     <div className="folders-page">
-      {isAuthenticated && <Navbar />}
       <div className="main-content">
         <div className="folders-header">
           <h1>{t.folders.title}</h1>
@@ -178,26 +216,29 @@ const Folders = ({ isAuthenticated }: HomeProps) => {
             className="add-folder-button"
             onClick={() => setShowCreateModal(true)}
           >
-            {t.folders.addFolder}
+            <span>{t.folders.addFolder}</span>
           </button>
         </div>
         <>
           <div className="folders-grid">
             {currentPage === 1 && allFolderData && (
-              <div className="folder-card all-folder">
+              <div
+                className="folder-card all-folder"
+                onClick={() => handleFolderClick()} // Для всех карточек
+              >
                 <h3>{t.folders.allFolders}</h3>
                 <p>{t.folders.cardsCount}: {allFolderData.cardCount}</p>
                 {allFolderData.cardCount > 0 && allFolderData.nearestReviewTime && (
                   <p>
                     {allFolderData.nearestReviewTime.value === 0
                       ? t.folders.nearestReviewNow
-                      : `${t.folders.nearestReview}: ${allFolderData.nearestReviewTime.value} ${allFolderData.nearestReviewTime.unit}`}
+                      : `${t.folders.nearestReviewAt}: ${allFolderData.nearestReviewTime.value} ${allFolderData.nearestReviewTime.unit}`}
                   </p>
                 )}
                 <div className="folder-actions">
                   <button
                     className="action-button view-button"
-                    onClick={() => history.push('/cards')}
+                    onClick={(e) => handleViewFolderCards(e)} // Обработчик для кнопки
                   >
                     {t.folders.view}
                   </button>
@@ -206,20 +247,25 @@ const Folders = ({ isAuthenticated }: HomeProps) => {
             )}
 
             {folders.map(folder => (
-              <div key={folder.id} className="folder-card">
+              <div
+                key={folder.id}
+                className="folder-card"
+                onClick={() => handleFolderClick(folder.id)} // Для конкретной папки
+              >
                 <h3>{folder.name}</h3>
                 <p>{t.folders.cardsCount}: {folder.cardCount}</p>
                 {folder.cardCount > 0 && folder.nearestReviewTime && (
                   <p>
                     {folder.nearestReviewTime.value === 0
                       ? t.folders.nearestReviewNow
-                      : `${t.folders.nearestReview}: ${folder.nearestReviewTime.value} ${folder.nearestReviewTime.unit}`}
+                      : `${t.folders.nearestReviewAt}: ${folder.nearestReviewTime.value} ${folder.nearestReviewTime.unit}`}
                   </p>
                 )}
                 <div className="folder-actions">
                   <button
                     className="action-button folder-edit-button"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.stopPropagation();
                       setEditingFolderId(folder.id);
                       setFolderName(folder.name);
                       setShowEditModal(true);
@@ -229,13 +275,17 @@ const Folders = ({ isAuthenticated }: HomeProps) => {
                   </button>
                   <button
                     className="action-button delete-button"
-                    onClick={() => handleDeleteClick(folder.id, folder.name)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDeleteClick(folder.id, folder.name);
+                    }}
                   >
                     {t.folders.delete}
                   </button>
+
                   <button
                     className="action-button view-button"
-                    onClick={() => history.push(`/cards?folderId=${folder.id}`)}
+                    onClick={(e) => handleViewFolderCards(e, folder.id)}
                   >
                     {t.folders.view}
                   </button>
@@ -244,44 +294,41 @@ const Folders = ({ isAuthenticated }: HomeProps) => {
             ))}
           </div>
 
-          <div className="pagination">
-            <button
-              disabled={currentPage === 1}
-              onClick={() => handlePageChange(currentPage - 1)}
-            >
-              {t.folders.previous}
-            </button>
-            <span>{t.folders.page} {currentPage} {t.folders.of} {totalPages}</span>
-            <button
-              disabled={currentPage === totalPages}
-              onClick={() => handlePageChange(currentPage + 1)}
-            >
-              {t.folders.next}
-            </button>
+          <div className="pagination-wrapper">
+            <div className="pagination">
+              <button
+                disabled={currentPage === 1}
+                onClick={() => handlePageChange(currentPage - 1)}
+              >
+                <span>{t.folders.previous}</span>
+              </button>
+              <span>
+                {t.folders.page} {currentPage} {t.folders.of} {totalPages}
+              </span>
+              <button
+                disabled={currentPage === totalPages}
+                onClick={() => handlePageChange(currentPage + 1)}
+              >
+                <span>{t.folders.next}</span>
+              </button>
+            </div>
           </div>
         </>
       </div>
       {/* Delete Confirmation Modal */}
-      <Modal
+      <DeleteConfirmationModal
         isOpen={showDeleteModal}
         onClose={handleCloseDeleteModal}
-        title={t.folders.confirmDeleteTitle}
-      >
-        <div className="modal-body" ref={deleteModalRef}>
-          <p>
-            {t.folders.confirmDeleteMessage}
-            <strong> "{folderToDeleteName}"</strong>?
-          </p>
-          <div className="modal-footer">
-            <button
-              className="modal-button confirm delete-button"
-              onClick={handleConfirmDelete}
-            >
-              {t.folders.delete}
-            </button>
-          </div>
-        </div>
-      </Modal>
+        onConfirm={handleConfirmDelete}
+        cardName={folderToDeleteName}
+        t={{
+          folders: {
+            confirmDeleteTitle: t.folders.confirmDeleteTitle,
+            confirmDeleteMessageCard: t.folders.confirmDeleteMessage,
+            delete: t.folders.delete
+          }
+        }}
+      />
       {/* Create Folder Modal */}
       <Modal
         isOpen={showCreateModal}
