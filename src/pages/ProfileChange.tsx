@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { authApi } from '../api/authApi';
 import { AxiosError } from 'axios';
-import Navbar from '../components/Navbar';
 import { ApiErrorResponse, LanguageDto, HomePropsToken } from '../types/auth';
 import { useTranslation } from '../hooks/useTranslation';
 import { LanguageContext } from '../contexts/LanguageContext';
@@ -143,7 +142,6 @@ const ProfileChange = ({ isAuthenticated, onAuthSuccess }: HomePropsToken) => {
 
   return (
     <div className="profile-change-page">
-      {isAuthenticated && <Navbar />}
       <div className="profile-change-container">
         <h1>{t.profile.editTitle}</h1>
         
@@ -215,7 +213,7 @@ const ProfileChange = ({ isAuthenticated, onAuthSuccess }: HomePropsToken) => {
           </div>
           
           <div className="form-actions">
-            <button type="submit" className="save-button">
+            <button type="submit" className="save-profile-button">
               {t.profile.saveButton}
             </button>
             <button 

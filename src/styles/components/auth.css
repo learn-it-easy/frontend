@@ -3,6 +3,9 @@
     gap: 1rem;
   }
   
+  .register-margin {
+    margin-top: 5rem;
+  }
   .auth-button {
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -12,9 +15,9 @@
     background-color: var(--white);
     color: var(--primary-blue);
     cursor: pointer;
-    user-select: none; /* Запрещает выделение текста при кликах */
-    position: relative; /* Нужно для правильной работы transform */
-    will-change: transform; /* Подготовка браузера к анимации */
+    user-select: none;
+    position: relative;
+    will-change: transform;
   }
     
   .auth-button.login {
@@ -37,7 +40,6 @@
     transform: scale(0.9);
   }
 
- /* Для текста внутри кнопки */
 .auth-button span {
-  display: inline-block; /* Чтобы текст тоже масштабировался */
+  display: inline-block;
 }

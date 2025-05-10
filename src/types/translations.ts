@@ -1,4 +1,4 @@
-export const SUPPORTED_LANGUAGES = ['ru', 'en'] as const;
+export const SUPPORTED_LANGUAGES = ['ru', 'en', 'es', 'de', 'fr'] as const;
 export type LanguageCode = typeof SUPPORTED_LANGUAGES[number];
 
 export interface Translation {
@@ -16,6 +16,11 @@ export interface Translation {
     nativeLanguage: string;
     tryAgain: string;
     unknow: string;
+    back: string;
+    create: string;
+    highlightText: string;
+    removeHihglightText: string;
+    write: string;
   };
   validation: {
     usernameRequired: string;
@@ -51,6 +56,7 @@ export interface Translation {
     profile: string;
     folders: string;
     add: string;
+    text: string;
   };
   home: {
     welcomeHeader: string;
@@ -76,6 +82,7 @@ export interface Translation {
     title: string;
     allFolders: string;
     cardsCount: string;
+    nearestReviewAt: string;
     nearestReview: string;
     nearestReviewNow: string;
     noReviews: string;
@@ -100,5 +107,38 @@ export interface Translation {
     change: string;
     confirmDeleteTitle: string;
     confirmDeleteMessage: string;
+    text: string;
+    textTranslation: string;
+    noCardsAvailable: string;
+    allCards: string;
+    noFolder: string;
+    confirmDeleteMessageCard: string;
+    folder: string;
   };
+
+  cards: {
+    invalidImageUrl: string;
+    isImage: string;
+    fillRequiredFieldsText: string;
+    fillRequiredFieldsTextTranslate: string;
+    notReviewCards: string;
+    easy: string;
+    medium: string;
+    hard: string;
+    showTranslation: string;
+    showText: string;
+    changeCard: string;
+    placeholder: string;
+  },
+  textPage: {
+    title: string;
+    placeholder: string;
+    dragAndDropHint: string;
+    usageHint: string;
+    clearText: string;
+    readMode: string;
+    editMode: string;
+    emptyText: string;
+    sentencesOnPage: string;
+  },
 }

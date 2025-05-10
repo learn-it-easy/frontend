@@ -125,7 +125,7 @@ const Register = ({ onAuthSuccess }: RegisterProps) => {
 
   return (
     <div className="auth-page">
-      <div className="auth-container">
+      <div className="auth-container register-margin">
         <h2>{t.registration.registrationLabel}</h2>
         {apiError && <div className="error-message">{apiError}</div>}
         <form onSubmit={handleSubmit} className="auth-form">
