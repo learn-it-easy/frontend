@@ -111,12 +111,6 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
       }
     };
   }, []);
-
-
-
-
-
-  
   
   useEffect(() => {  
     calculateSentencesPerPage();
@@ -126,7 +120,10 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
   }, [calculateSentencesPerPage, viewMode]);
 
   const splitIntoSentences = (text: string) => {
-    return text.split(/(?<=[.!?])\s+/).filter(s => s.trim() !== '');
+    return text
+      .split(/(?<=[.!?…。．｡！？])\s+|(?<=\n)/)
+      .filter(s => s.trim() !== '')
+      .map(s => s.trim());
   };
 
   const preparePages = useCallback(() => {

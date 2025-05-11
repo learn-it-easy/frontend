@@ -124,7 +124,8 @@
     "showTranslation": "Show Translation",
     "showText": "Show Text",
     "changeCard": "Edit",
-    "placeholder": "Highlight text and right-click / hold on phone to highlight text"
+    "placeholder": "Highlight text and right-click / hold on phone to highlight text",
+    "translationError": "Translation error"
   },
   "textPage": {
     "title": "Text Work",
@@ -136,5 +137,8 @@
     "editMode": "Edit Mode",
     "emptyText": "No text available. Add text to view.",
     "sentencesOnPage": "Sentences per page:"
+  },
+  "apiTranslate": {
+    "errorTranslate": "Translation error"
   }
 }

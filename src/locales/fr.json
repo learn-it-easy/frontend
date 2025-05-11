@@ -124,7 +124,8 @@
     "showTranslation": "Afficher la traduction",
     "showText": "Afficher le texte",
     "changeCard": "Modifier",
-    "placeholder": "Sélectionnez le texte et faites un clic droit / maintenez sur téléphone pour sélectionner le texte"
+    "placeholder": "Sélectionnez le texte et faites un clic droit / maintenez sur téléphone pour sélectionner le texte",
+    "translationError": "Erreur de traduction"
   },
   "textPage": {
     "title": "Travail avec le texte",
@@ -136,5 +137,8 @@
     "editMode": "Mode édition",
     "emptyText": "Aucun texte disponible. Ajoutez du texte pour voir.",
     "sentencesOnPage": "Phrases par page :"
+  },
+  "apiTranslate": {
+    "errorTranslate": "Erreur lors de la traduction"
   }
 }
