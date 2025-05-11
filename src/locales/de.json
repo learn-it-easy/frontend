@@ -124,7 +124,8 @@
     "showTranslation": "Übersetzung anzeigen",
     "showText": "Text anzeigen",
     "changeCard": "Bearbeiten",
-    "placeholder": "Markieren Sie den Text und klicken Sie mit der rechten Maustaste / halten Sie auf dem Telefon gedrückt, um Text zu markieren"
+    "placeholder": "Markieren Sie den Text und klicken Sie mit der rechten Maustaste / halten Sie auf dem Telefon gedrückt, um Text zu markieren",
+    "translationError": "Übersetzungsfehler"
   },
   "textPage": {
     "title": "Textarbeit",
@@ -136,5 +137,8 @@
     "editMode": "Bearbeitungsmodus",
     "emptyText": "Kein Text vorhanden. Fügen Sie Text zum Anzeigen hinzu.",
     "sentencesOnPage": "Sätze pro Seite:"
+  },
+  "apiTranslate": {
+    "errorTranslate": "Fehler bei der Übersetzung"
   }
 }
