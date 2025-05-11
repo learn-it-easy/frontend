@@ -7,6 +7,7 @@ import { AxiosError } from 'axios';
 import Loader from '../components/Loader';
 import { useCards } from '../contexts/CardContext';
 import { TextSelectionMenu } from './TextSelectionMenu';
+import { translateApi } from '../api/translateApi';
 
 interface AddCardModalProps {
   isOpen: boolean;
@@ -23,14 +24,35 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
   const { language } = useContext(LanguageContext);
   const [modalError, setModalError] = useState<string | null>(null);
   const { refreshCards } = useCards();
+  const [isTranslating, setIsTranslating] = useState(false);
 
   const modalRef = useRef<HTMLDivElement>(null);
-  
+
   const initialFormData = {
     folderId: null,
     text: initialText,
     textTranslation: '',
     isImage: false,
+  };
+
+  const handleTranslate = async () => {
+    if (!formData.text.trim()) return;
+
+    setIsTranslating(true);
+    setModalError(null);
+
+    try {
+      const translatedText = await translateApi.translateText(t.apiTranslate.errorTranslate ,formData.text);
+      setFormData(prev => ({
+        ...prev,
+        textTranslation: translatedText,
+      }));
+    } catch (err) {
+      const error = err as Error;
+      setModalError(error.message || t.cards.translationError);
+    } finally {
+      setIsTranslating(false);
+    }
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -75,7 +97,7 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
-    
+
     setFormData(prev => ({
       ...prev,
       [name]: (name === 'folderId' ? (value === 'null' ? null : parseInt(value)) : value),
@@ -106,7 +128,7 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
 
     setLoading(true);
     setError(null);
-    
+
     try {
       const token = localStorage.getItem('token');
       if (!token) {
@@ -136,14 +158,14 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
   return (
     <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && handleClose()}>
       <div className="modal-container" ref={modalRef}>
-      {isOpen && <TextSelectionMenu targetRef={modalRef} onInputChange={handleInputChange as any} />}
+        {isOpen && <TextSelectionMenu targetRef={modalRef} onInputChange={handleInputChange as any} />}
         <div className="modal-header">
           <h3 className="modal-title">{t.navbar.add}</h3>
           <button className="modal-close-button" onClick={handleClose} disabled={loading}>
             &times;
           </button>
         </div>
-        
+
         <div className="modal-content">
           {modalError && (
             <div className={`modal-error-message ${!modalError ? 'hidden' : ''}`}>
@@ -175,7 +197,7 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
                   value={formData.textTranslation}
                   onChange={handleInputChange}
                   className="modal-input"
-                  autoComplete="off"  
+                  autoComplete="off"
                 />
               </div>
 
@@ -198,15 +220,22 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
 
               <div className="button-group">
                 <div className="small-buttons">
-                  <button type="button" className="small-button" disabled>P</button>
+                  <button
+                    type="button"
+                    className={`small-button ${!formData.text.trim() ? 'disabled' : ''}`}
+                    onClick={handleTranslate}
+                    disabled={!formData.text.trim() || isTranslating}
+                  >
+                    {isTranslating ? <Loader /> : 'P'}
+                  </button>
                   <button type="button" className="small-button" disabled>C</button>
                   <button type="button" className="small-button" disabled>T</button>
                 </div>
-                
+
                 <div className="action-buttons">
-                  <button 
-                    type="submit" 
-                    className="modal-button confirm" 
+                  <button
+                    type="submit"
+                    className="modal-button confirm"
                     disabled={loading}
                   >
                     {loading ? t.common.create : t.common.create}

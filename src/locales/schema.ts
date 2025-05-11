@@ -128,6 +128,7 @@ const translationSchema: Translation = {
     showText: '',
     changeCard: '',
     placeholder: '',
+    translationError: '',
   },
   textPage: {
     title: '',
@@ -139,6 +140,9 @@ const translationSchema: Translation = {
     editMode: '',
     emptyText: '',
     sentencesOnPage: '',
+  },
+  apiTranslate: {
+    errorTranslate: '',
   },
 };
 

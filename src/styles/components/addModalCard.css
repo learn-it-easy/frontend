@@ -21,6 +21,10 @@
   cursor: not-allowed;
 }
 
+.small-button:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
 .modal-button.confirm {
   padding: 8px 24px;
   background-color: var(--primary-blue);
