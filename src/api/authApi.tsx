@@ -18,7 +18,7 @@ import {
 
 } from '../types/auth';
 
-const API_BASE_URL = 'http://localhost:8080';
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 export const authApi = {
   register: async (userData: UserRegistrationDto, lang: string): Promise<AuthResponseDto> => {

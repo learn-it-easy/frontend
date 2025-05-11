@@ -129,6 +129,7 @@ export interface Translation {
     showText: string;
     changeCard: string;
     placeholder: string;
+    translationError: string;
   },
   textPage: {
     title: string;
@@ -141,4 +142,7 @@ export interface Translation {
     emptyText: string;
     sentencesOnPage: string;
   },
+  apiTranslate: {
+    errorTranslate: string;
+  }
 }

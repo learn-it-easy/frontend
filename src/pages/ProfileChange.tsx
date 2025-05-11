@@ -6,6 +6,7 @@ import { ApiErrorResponse, LanguageDto, HomePropsToken } from '../types/auth';
 import { useTranslation } from '../hooks/useTranslation';
 import { LanguageContext } from '../contexts/LanguageContext';
 import { useValidations } from '../utils/validations';
+import Loader from '../components/Loader';
 
 const ProfileChange = ({ isAuthenticated, onAuthSuccess }: HomePropsToken) => {
   const { t } = useTranslation();
@@ -112,32 +113,31 @@ const ProfileChange = ({ isAuthenticated, onAuthSuccess }: HomePropsToken) => {
     e.preventDefault();
     setApiError(null);
 
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     try {
-      const response = await authApi.updateProfile({
-        username: formData.username,
-        email: formData.email,
-        password: formData.password || undefined,
-        learningLanguageId: formData.learningLanguageId,
-        nativeLanguageId: formData.nativeLanguageId
-      }, language);
+        setLoading(true);
+        const response = await authApi.updateProfile({
+            username: formData.username,
+            email: formData.email,
+            password: formData.password || undefined,
+            learningLanguageId: formData.learningLanguageId,
+            nativeLanguageId: formData.nativeLanguageId
+        }, language);
 
-      if (response.token) {
-        onAuthSuccess(response.token);
-      }
-
-      history.push('/profile');
+        history.push('/profile');
     } catch (err) {
-      const axiosError = err as AxiosError<ApiErrorResponse>;
-      setApiError(axiosError.response?.data.message || t.profile.errorUpdating);
+        const axiosError = err as AxiosError<ApiErrorResponse>;
+        setApiError(axiosError.response?.data.message || t.profile.errorUpdating);
+    } finally {
+        setLoading(false);
     }
-  };
+};
+
+
 
   if (loading) {
-    return <div className="loading">{t.profile.loading}</div>;
+   <Loader/>
   }
 
   return (
