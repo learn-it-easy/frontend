@@ -144,6 +144,9 @@ const translationSchema: Translation = {
   apiTranslate: {
     errorTranslate: '',
   },
+  apiContext: {
+    menuTitle: '',
+  },
 };
 
 export default translationSchema;
