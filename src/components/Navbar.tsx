@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import AddCardModal from './AddCardModal';
 import { useFolders } from '../contexts/FolderContext';
 
@@ -16,7 +16,7 @@ const Navbar = ({ isAuthenticated, onLogout }: HeaderProps) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const { refreshFolders } = useFolders();
-
+  const navbarRef = useRef<HTMLDivElement>(null);
 
   const handleCardAdded = () => {
     console.log('Card added successfully');
@@ -30,9 +30,21 @@ const Navbar = ({ isAuthenticated, onLogout }: HeaderProps) => {
       if (!mobile) setIsOpen(true);
     };
 
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isMobile && isOpen && navbarRef.current && !navbarRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobile, isOpen]);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -58,7 +70,10 @@ const Navbar = ({ isAuthenticated, onLogout }: HeaderProps) => {
       )}
 
 
-      <nav className={`navbar ${isOpen ? 'open' : ''} ${isMobile ? 'mobile' : ''}`}>
+      <nav
+        ref={navbarRef}
+        className={`navbar ${isOpen ? 'open' : ''} ${isMobile ? 'mobile' : ''}`}
+      >
         <ul className="nav-list">
           <li className="nav-item">
             <NavLink
@@ -133,14 +148,14 @@ const Navbar = ({ isAuthenticated, onLogout }: HeaderProps) => {
             </NavLink>
           </li>
         </ul>
-       
+
       </nav>
 
       <AddCardModal
-          isOpen={isAddModalOpen}
-          onClose={() => setIsAddModalOpen(false)}
-          onCardAdded={handleCardAdded}
-        />
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onCardAdded={handleCardAdded}
+      />
     </>
   );
 };
