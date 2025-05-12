@@ -8,6 +8,7 @@ import Loader from '../components/Loader';
 import { useCards } from '../contexts/CardContext';
 import { TextSelectionMenu } from './TextSelectionMenu';
 import { translateApi } from '../api/translateApi';
+import { contextApi } from '../api/contextApi';
 
 interface AddCardModalProps {
   isOpen: boolean;
@@ -16,7 +17,75 @@ interface AddCardModalProps {
   initialText?: string;
 }
 
+interface ContextModalProps {
+  isOpen: boolean;
+  sentences: {
+    text: string;
+    textTranslate: string;
+  }[];
+  onSelect: (text: string, translation: string) => void;
+  onClose: () => void;
+}
+
+const formatText = (text: string) => {
+  const parts = text.split(/(==[^=]+==)/g);
+
+  return (
+    <span>
+      {parts.map((part, index) => {
+        if (part.startsWith('==') && part.endsWith('==')) {
+          const word = part.slice(2, -2);
+          return (
+            <span
+              key={index}
+              className="word-background"
+            >
+              {word}
+            </span>
+          );
+        }
+        return part;
+      })}
+    </span>
+  );
+};
+
 const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdded, initialText = '' }) => {
+  const ContextModal: React.FC<ContextModalProps> = ({ isOpen, sentences, onSelect, onClose }) => {
+    if (!isOpen) return null;
+
+    return (
+      <div className="modal-overlay" onClick={onClose}>
+        <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-header">
+            <h3 className="modal-title">{t.apiContext.menuTitle}</h3>
+            <button className="modal-close-button" onClick={onClose}>
+              &times;
+            </button>
+          </div>
+          <div className="modal-content">
+            <div className="context-sentences">
+              {sentences.map((sentence, index) => (
+                <div
+                  key={index}
+                  className="context-sentence"
+                  onClick={() => {
+                    // Передаем оригинальные тексты с == ==
+                    onSelect(sentence.text, sentence.textTranslate);
+                    onClose();
+                  }}
+                >
+                  {/* Отображаем форматированный текст */}
+                  <div className="context-original">{formatText(sentence.text)}</div>
+                  <div className="context-translation">{formatText(sentence.textTranslate)}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
   const { t } = useTranslation();
   const [folders, setFolders] = useState<Folder[]>([]);
   const [error, setError] = useState<ApiErrorResponse | null>(null);
@@ -25,7 +94,9 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
   const [modalError, setModalError] = useState<string | null>(null);
   const { refreshCards } = useCards();
   const [isTranslating, setIsTranslating] = useState(false);
-
+  const [contextModalOpen, setContextModalOpen] = useState(false);
+  const [contextSentences, setContextSentences] = useState<{ text: string; textTranslate: string }[]>([]);
+  const [isFetchingContext, setIsFetchingContext] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   const initialFormData = {
@@ -42,7 +113,7 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
     setModalError(null);
 
     try {
-      const translatedText = await translateApi.translateText(t.apiTranslate.errorTranslate ,formData.text);
+      const translatedText = await translateApi.translateText(t.apiTranslate.errorTranslate, formData.text);
       setFormData(prev => ({
         ...prev,
         textTranslation: translatedText,
@@ -92,6 +163,24 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
       setModalError(axiosError.response?.data?.message || t.folders.errorLoading);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleGetContext = async () => {
+    if (!formData.text.trim()) return;
+
+    setIsFetchingContext(true);
+    setModalError(null);
+
+    try {
+      const response = await contextApi.getContextSentences(formData.text.trim());
+      setContextSentences(response.sentences);
+      setContextModalOpen(true);
+    } catch (err) {
+      const error = err as Error;
+      setModalError(error.message || 'Failed to fetch context sentences');
+    } finally {
+      setIsFetchingContext(false);
     }
   };
 
@@ -226,9 +315,17 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
                     onClick={handleTranslate}
                     disabled={!formData.text.trim() || isTranslating}
                   >
-                    {isTranslating ? <Loader /> : 'P'}
+                    {isTranslating ? <><Loader /> T</> : 'T'}
                   </button>
-                  <button type="button" className="small-button" disabled>C</button>
+                  <button
+                    type="button"
+                    className="small-button"
+                    onClick={handleGetContext}
+                    disabled={!formData.text.trim() || isFetchingContext}
+                  >
+
+                    {isFetchingContext ? <><Loader /> C</> : 'C'}
+                  </button>
                   <button type="button" className="small-button" disabled>T</button>
                 </div>
 
@@ -246,6 +343,18 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
           )}
         </div>
       </div>
+      <ContextModal
+        isOpen={contextModalOpen}
+        sentences={contextSentences}
+        onSelect={(text, translation) => {
+          setFormData(prev => ({
+            ...prev,
+            text,
+            textTranslation: translation
+          }));
+        }}
+        onClose={() => setContextModalOpen(false)}
+      />
     </div>
   );
 };

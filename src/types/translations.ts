@@ -144,5 +144,8 @@ export interface Translation {
   },
   apiTranslate: {
     errorTranslate: string;
+  },
+  apiContext: {
+    menuTitle: string;
   }
 }

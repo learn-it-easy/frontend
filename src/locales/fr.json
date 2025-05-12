@@ -140,5 +140,8 @@
   },
   "apiTranslate": {
     "errorTranslate": "Erreur lors de la traduction"
+  },
+  "apiContext": {
+    "menuTitle": "Suggestions contextuelles"
   }
 }

@@ -68,3 +68,37 @@
   margin-top: 4px;
   opacity: 0.8;
 }
+
+
+
+
+
+
+
+.context-sentences {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.context-sentence {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.context-sentence:hover {
+  background-color: #f5f5f5;
+  background-color: var(--light-blue);
+}
+
+.context-original {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.context-translation {
+  color: var(--gray);
+}
