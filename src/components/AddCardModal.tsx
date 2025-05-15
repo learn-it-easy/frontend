@@ -9,6 +9,10 @@ import { useCards } from '../contexts/CardContext';
 import { TextSelectionMenu } from './TextSelectionMenu';
 import { translateApi } from '../api/translateApi';
 import { contextApi } from '../api/contextApi';
+import { pictureApi } from '../api/picturesApi';
+import { isValidImageUrl } from '../utils/urlValidation';
+import { PictureModal } from './PictureModal';
+import { ContextModal } from './ContextModal';
 
 interface AddCardModalProps {
   isOpen: boolean;
@@ -50,42 +54,12 @@ const formatText = (text: string) => {
   );
 };
 
-const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdded, initialText = '' }) => {
-  const ContextModal: React.FC<ContextModalProps> = ({ isOpen, sentences, onSelect, onClose }) => {
-    if (!isOpen) return null;
-
-    return (
-      <div className="modal-overlay" onClick={onClose}>
-        <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-header">
-            <h3 className="modal-title">{t.apiContext.menuTitle}</h3>
-            <button className="modal-close-button" onClick={onClose}>
-              &times;
-            </button>
-          </div>
-          <div className="modal-content">
-            <div className="context-sentences">
-              {sentences.map((sentence, index) => (
-                <div
-                  key={index}
-                  className="context-sentence"
-                  onClick={() => {
-                    // Передаем оригинальные тексты с == ==
-                    onSelect(sentence.text, sentence.textTranslate);
-                    onClose();
-                  }}
-                >
-                  {/* Отображаем форматированный текст */}
-                  <div className="context-original">{formatText(sentence.text)}</div>
-                  <div className="context-translation">{formatText(sentence.textTranslate)}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
+export const AddCardModal: React.FC<AddCardModalProps> = ({
+  isOpen,
+  onClose,
+  onCardAdded,
+  initialText = ''
+}) => {
   const { t } = useTranslation();
   const [folders, setFolders] = useState<Folder[]>([]);
   const [error, setError] = useState<ApiErrorResponse | null>(null);
@@ -97,6 +71,9 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
   const [contextModalOpen, setContextModalOpen] = useState(false);
   const [contextSentences, setContextSentences] = useState<{ text: string; textTranslate: string }[]>([]);
   const [isFetchingContext, setIsFetchingContext] = useState(false);
+  const [pictureModalOpen, setPictureModalOpen] = useState(false);
+  const [pictures, setPictures] = useState<{ url: string }[]>([]);
+  const [isFetchingPictures, setIsFetchingPictures] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   const initialFormData = {
@@ -105,6 +82,65 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
     textTranslation: '',
     isImage: false,
   };
+
+  useEffect(() => {
+    const handleScrollLock = () => {
+      if (isOpen) {
+        const scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.width = '100%';
+        document.body.classList.add('body-no-scroll');
+      } else {
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.classList.remove('body-no-scroll');
+        
+        if (scrollY) {
+          window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        }
+      }
+    };
+  
+    handleScrollLock();
+  
+    return () => {
+      if (isOpen) {
+        handleScrollLock();
+      }
+    };
+  }, [isOpen]);
+
+  const [formData, setFormData] = useState(initialFormData);
+
+  const handleGetPictures = async () => {
+    if (!formData.text.trim()) return;
+
+    setIsFetchingPictures(true);
+    setModalError(null);
+
+    try {
+      const response = await pictureApi.getPictures(formData.text.trim());
+
+      // Фильтруем только валидные URL изображений
+      const validPictures = response.pictures.filter(pic => isValidImageUrl(pic.url));
+
+      if (validPictures.length === 0) {
+        throw new Error(t.apiPictures.noValidImageFound);
+      }
+
+      setPictures(validPictures);
+      setPictureModalOpen(true);
+    } catch (err) {
+      const error = err as Error;
+      setModalError(t.apiPictures.failedToFetch);
+    } finally {
+      setIsFetchingPictures(false);
+    }
+  };
+
 
   const handleTranslate = async () => {
     if (!formData.text.trim()) return;
@@ -126,19 +162,6 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
     }
   };
 
-  const [formData, setFormData] = useState(initialFormData);
-
-  // Функция проверки URL изображения
-  const isImageUrl = (url: string): boolean => {
-    try {
-      new URL(url);
-      const lowerUrl = url.toLowerCase();
-      return lowerUrl.match(/\.(jpg|jpeg|png|gif|webp|bmp)(\?.*)?$/) !== null;
-    } catch {
-      return false;
-    }
-  };
-
   useEffect(() => {
     if (isOpen) {
       setFormData({
@@ -147,10 +170,13 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
         textTranslation: '',
         isImage: false
       });
+      setPictureModalOpen(false);
       fetchFolders();
       setError(null);
     }
   }, [isOpen, initialText, language]);
+
+  
 
   const fetchFolders = async () => {
     try {
@@ -199,6 +225,7 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
     // Сброс формы при закрытии
     setFormData(initialFormData);
     setModalError(null);
+    setPictureModalOpen(false);
     onClose();
   };
 
@@ -326,7 +353,13 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
 
                     {isFetchingContext ? <><Loader /> C</> : 'C'}
                   </button>
-                  <button type="button" className="small-button" disabled>T</button>
+                  <button
+                    type="button"
+                    className={`small-button`}
+                    onClick={() => setPictureModalOpen(true)}
+                  >
+                    P
+                  </button>
                 </div>
 
                 <div className="action-buttons">
@@ -355,6 +388,22 @@ const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, onClose, onCardAdde
         }}
         onClose={() => setContextModalOpen(false)}
       />
+
+
+      <PictureModal
+        isOpen={pictureModalOpen}
+        pictures={[]}
+        query={formData.text}
+        folders={folders}
+        onSelect={() => {
+          refreshCards();
+          onCardAdded();
+          handleClose();
+        }}
+        onClose={() => setPictureModalOpen(false)}
+        language={language}
+      />
+
     </div>
   );
 };

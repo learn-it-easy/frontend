@@ -110,7 +110,8 @@
     "allCards": "Todas las tarjetas",
     "noFolder": "Sin carpeta",
     "confirmDeleteMessageCard": "Eliminar tarjeta con palabra",
-    "folder": "Carpeta"
+    "folder": "Carpeta",
+    "customImageUrl":"Enlace a la imagen"
   },
   "cards": {
     "invalidImageUrl": "Ingrese URL de imagen (jpg, png, gif, etc.)",
@@ -125,7 +126,8 @@
     "showText": "Mostrar texto",
     "changeCard": "Editar",
     "placeholder": "Resalte el texto y haga clic derecho / mantenga presionado en el teléfono para resaltar texto",
-    "translationError": "Error de traducción"
+    "translationError": "Error de traducción",
+    "showImage": "Mostrar imagen"
   },
   "textPage": {
     "title": "Trabajo con texto",
@@ -143,5 +145,12 @@
   },
   "apiContext": {
     "menuTitle": "Sugerencias contextuales"
+  },
+  "apiPictures": {
+    "customImageUrl": "Enlace a la imagen",
+    "placeholder": "Introduce el enlace de la imagen",
+    "noValidImageFound": "No se encontraron imágenes adecuadas",
+    "failedToFetch": "Error al cargar las imágenes",
+    "fetchPictures": "Cargar imágenes"
   }
 }

@@ -1,0 +1,103 @@
+.pictures-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 15px;
+  }
+  
+  .picture-item {
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  
+  .picture-item:hover {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+    background-color: var(--light-blue);
+  }
+  
+  .picture-thumbnail {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    display: block;
+  }
+  
+  .modal-overlay-2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal-button.confirm {
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  
+  .input-with-button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .modal-input {
+    flex: 1;
+  }
+  
+  .small-confirm-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+  
+  .small-confirm-button:hover:not(:disabled) {
+    background-color: var(--dark-blue);
+  }
+  
+  .small-confirm-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  .fetch-pictures-button {
+    margin-top: 8px;
+    padding: 6px 12px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .fetch-pictures-button:hover {
+    background-color: var(--dark-blue);
+    transition: background-color 0.2s;
+  }
+  
+  .fetch-pictures-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
