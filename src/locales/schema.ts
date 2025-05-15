@@ -114,6 +114,7 @@ const translationSchema: Translation = {
     noFolder: '',
     confirmDeleteMessageCard: '',
     folder: '',
+    customImageUrl:'',
   },
   cards: {
     invalidImageUrl: '',
@@ -129,6 +130,8 @@ const translationSchema: Translation = {
     changeCard: '',
     placeholder: '',
     translationError: '',
+    showImage: '',
+    
   },
   textPage: {
     title: '',
@@ -146,6 +149,13 @@ const translationSchema: Translation = {
   },
   apiContext: {
     menuTitle: '',
+  },
+  apiPictures: {
+    customImageUrl: '',
+    placeholder: '',
+    noValidImageFound: '',
+    failedToFetch: '',
+    fetchPictures: '',
   },
 };
 

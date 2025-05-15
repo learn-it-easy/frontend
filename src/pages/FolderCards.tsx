@@ -303,13 +303,7 @@ const FolderCards = ({ isAuthenticated }: { isAuthenticated: boolean }) => {
         onClose={handleCloseDeleteModal}
         onConfirm={handleConfirmDelete}
         cardName={cardToDelete.mainWord}
-        t={{
-          folders: {
-            confirmDeleteTitle: t.folders.confirmDeleteTitle,
-            confirmDeleteMessageCard: t.folders.confirmDeleteMessageCard,
-            delete: t.folders.delete
-          }
-        }}
+        t={t}
       />
       {/* Edit Card Modal */}
       <CardReviewModal
@@ -319,15 +313,7 @@ const FolderCards = ({ isAuthenticated }: { isAuthenticated: boolean }) => {
         updateData={updateData}
         setUpdateData={setUpdateData}
         folders={folders}
-        t={{
-          folders: {
-            change: t.cards.changeCard,
-            text: t.folders.text,
-            textTranslation: t.folders.textTranslation,
-            title: t.folders.folder,
-            noFolder: t.folders.noFolder
-          }
-        }}
+        t={t}
       />
     </div>
   );

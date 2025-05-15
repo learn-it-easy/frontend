@@ -110,7 +110,8 @@
     "allCards": "All cards",
     "noFolder": "No folder",
     "confirmDeleteMessageCard": "Delete card with word",
-    "folder": "Folder"
+    "folder": "Folder",
+    "customImageUrl":"Link to the image"
   },
   "cards": {
     "invalidImageUrl": "Enter image URL (jpg, png, gif, etc.)",
@@ -125,7 +126,8 @@
     "showText": "Show Text",
     "changeCard": "Edit",
     "placeholder": "Highlight text and right-click / hold on phone to highlight text",
-    "translationError": "Translation error"
+    "translationError": "Translation error",
+    "showImage": "Show Image"
   },
   "textPage": {
     "title": "Text Work",
@@ -141,8 +143,14 @@
   "apiTranslate": {
     "errorTranslate": "Translation error"
   },
-    "apiContext": {
-      "menuTitle": "Contextual suggestions"
-    }
-  
+  "apiContext": {
+    "menuTitle": "Contextual suggestions"
+  },
+  "apiPictures": {
+    "customImageUrl": "Link to the image",
+    "placeholder": "Enter the image link",
+    "noValidImageFound": "No suitable images found",
+    "failedToFetch": "Error loading images",
+    "fetchPictures": "Load images"
+  }
 }

@@ -110,7 +110,8 @@
       "allCards": "Все карточки",
       "noFolder": "Без папки",
       "confirmDeleteMessageCard": "Удалить карточку со словом",
-      "folder": "Папка"
+      "folder": "Папка",
+      "customImageUrl":"Ссылка на картинку"
   },
   "cards": {
     "invalidImageUrl": "Введите URL изображения (jpg, png, gif и т.д.)",
@@ -125,7 +126,8 @@
     "showText": "Показать текст",
     "changeCard": "Изменить",
     "placeholder": "Выделите текст и нажмите ПКМ / зажмите на телефоне для выделения текста",
-    "translationError": "Ошибка перевода"
+    "translationError": "Ошибка перевода",
+    "showImage": "Показать изображение"
   },
   "textPage": {
     "title": "Работа с текстом",
@@ -143,5 +145,12 @@
   },
   "apiContext": {
     "menuTitle": "Контекстные предложения"
+  },
+  "apiPictures": {
+    "customImageUrl": "Ссылка на картинку",
+    "placeholder": "Введите ссылку на картинку",
+    "noValidImageFound": "Подходящих изображений не найдено",
+    "failedToFetch": "Ошибка загрузки изображений",
+    "fetchPictures": "Загрузить изображения"
   }
 }

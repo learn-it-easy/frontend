@@ -12,6 +12,13 @@
   width: 100%;
 }
 
+/* Блокировка скрола при другом окне (модальном)*/
+.body-no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
   /* Мобильная версия */
 @media (max-width: 767px) {
  
@@ -21,4 +28,14 @@
    max-width: 1200px;
    width: calc(100%);
  }    
+
+  button {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus {
+    outline: none;
+  }
+
 }
