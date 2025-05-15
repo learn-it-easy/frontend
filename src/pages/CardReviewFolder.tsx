@@ -119,6 +119,12 @@ const CardReview = ({ isAuthenticated }: HomeProps) => {
         fetchFolders();
     }, [language]);
 
+    useEffect(() => {
+        if (card) {
+            setViewMode(card.isImage ? 'translation' : 'text');
+        }
+    }, [card]);
+
     const handleDifficulty = async (difficulty: 'easy' | 'medium' | 'hard') => {
         if (!card) return;
 
@@ -222,18 +228,34 @@ const CardReview = ({ isAuthenticated }: HomeProps) => {
                     </div>
 
                     <div className="card-content-review">
-                        {viewMode === 'text' ? (
-                            <div className="card-text">
-                                {formatText(card.text)}
-                            </div>
+                        {card.isImage ? (
+                            viewMode === 'translation' ? (
+                            <div className="card-image">
+                                    <img
+                                        src={card.textTranslation}
+                                        alt={card.text}
+                                        className="image-content"
+                                        onError={(e) => {
+                                            const img = e.target as HTMLImageElement;
+                                            img.style.display = 'none';
+                                        }}
+                                    />
+                                </div>
+                            ) : (
+                                <div className="card-text">
+                                    {formatText(card.text)}
+                                </div>
+                            )
                         ) : (
-                            <div className="card-translation">
-                                {card.isImage ? (
-                                    <img src={card.textTranslation} alt="Card content" />
-                                ) : (
-                                    formatText(card.textTranslation)
-                                )}
-                            </div>
+                            viewMode === 'text' ? (
+                                <div className="card-text">
+                                    {formatText(card.text)}
+                                </div>
+                            ) : (
+                                <div className="card-translation">
+                                    {formatText(card.textTranslation)}
+                                </div>
+                            )
                         )}
                     </div>
 
@@ -241,7 +263,11 @@ const CardReview = ({ isAuthenticated }: HomeProps) => {
                         className="toggle-view-button"
                         onClick={() => setViewMode(viewMode === 'text' ? 'translation' : 'text')}
                     >
-                        {viewMode === 'text' ? t.cards.showTranslation : t.cards.showText}
+                        {card.isImage ? (
+                            viewMode === 'text' ? t.cards.showImage : t.cards.showText
+                        ) : (
+                            viewMode === 'text' ? t.cards.showTranslation : t.cards.showText
+                        )}
                     </button>
 
                     <div className="card-actions-review">
@@ -278,15 +304,7 @@ const CardReview = ({ isAuthenticated }: HomeProps) => {
                 updateData={updateData}
                 setUpdateData={setUpdateData}
                 folders={folders}
-                t={{
-                    folders: {
-                        change: t.cards.changeCard,
-                        text: t.folders.text,
-                        textTranslation: t.folders.textTranslation,
-                        title: t.folders.folder,
-                        noFolder: t.folders.noFolder
-                    }
-                }}
+                t={t}
             />
 
             <DeleteConfirmationModal
@@ -294,13 +312,7 @@ const CardReview = ({ isAuthenticated }: HomeProps) => {
                 onClose={() => setShowDeleteModal(false)}
                 onConfirm={handleDeleteCard}
                 cardName={card?.text || ''}
-                t={{
-                    folders: {
-                        confirmDeleteTitle: t.folders.confirmDeleteTitle,
-                        confirmDeleteMessageCard: t.folders.confirmDeleteMessageCard,
-                        delete: t.folders.delete
-                    }
-                }}
+                t={t}
             />
         </div>
     );

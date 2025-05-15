@@ -10,6 +10,7 @@
 @import './components/modal.css';
 @import './components/addModalCard.css';
 @import './components/buttons.css';
+@import './components/pictureModal.css';
 
 /* Pages */
 @import './pages/auth.css';

@@ -40,7 +40,7 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
     }
     return 5;
   });
-  
+
   useEffect(() => {
     localStorage.setItem('sentencesPerPage', sentencesPerPage.toString());
   }, [sentencesPerPage]);
@@ -49,14 +49,14 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
 
   const calculateSentencesPerPage = () => {
     if (!contentRef.current) return MAX_SENTENCES;
-    
+
     const sentences = contentRef.current.querySelectorAll('.text-sentence');
     if (sentences.length === 0) return MAX_SENTENCES;
-    
+
     const firstSentence = sentences[0];
     const sentenceHeight = firstSentence.clientHeight;
     const containerHeight = contentRef.current.clientHeight;
-    
+
     return Math.min(
       MAX_SENTENCES,
       Math.max(1, Math.floor(containerHeight / sentenceHeight))
@@ -73,7 +73,7 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
     localStorage.setItem('savedText', text);
     preparePages();
   }, [text, sentencesPerPage]);
-  
+
 
   useEffect(() => {
     localStorage.setItem('currentTextPage', currentPage.toString());
@@ -93,7 +93,6 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
   }, []);
 
 
-  // Handle paste event
   useEffect(() => {
     const handlePaste = (e: ClipboardEvent) => {
       const pastedText = e.clipboardData?.getData('text/plain') || '';
@@ -111,8 +110,8 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
       }
     };
   }, []);
-  
-  useEffect(() => {  
+
+  useEffect(() => {
     calculateSentencesPerPage();
     const handleResize = () => calculateSentencesPerPage();
     window.addEventListener('resize', handleResize);
@@ -134,11 +133,11 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
 
     const sentences = splitIntoSentences(text);
     const newPages: string[][] = [];
-    
+
     for (let i = 0; i < sentences.length; i += sentencesPerPage) {
       newPages.push(sentences.slice(i, i + sentencesPerPage));
     }
-    
+
     setPages(newPages);
   }, [text, sentencesPerPage]);
 
@@ -206,55 +205,55 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
     }
 
     return (
-      
+
       <div className="reading-view">
-      <div className="controls">
-        <label className="sentences-per-page-label">
-          {t.textPage.sentencesOnPage}
-          <select 
-            value={sentencesPerPage}
-            onChange={(e) => setSentencesPerPage(Number(e.target.value))}
-            className="sentences-per-page-select"
+        <div className="controls">
+          <label className="sentences-per-page-label">
+            {t.textPage.sentencesOnPage}
+            <select
+              value={sentencesPerPage}
+              onChange={(e) => setSentencesPerPage(Number(e.target.value))}
+              className="sentences-per-page-select"
+            >
+              {[1, 3, 5, 10, 15, 20].map(num => (
+                <option key={num} value={num}>{num}</option>
+              ))}
+            </select>
+          </label>
+        </div>
+
+        <div className="text-content" ref={contentRef}>
+          <textarea
+            readOnly
+            className="text-sentence"
+            value={pages[currentPage]?.join('\n\n') || ''}
+          />
+        </div>
+
+        <div className="page-navigation">
+          <button
+            onClick={goToPrevPage}
+            disabled={currentPage === 0}
+            className="nav-button prev-button"
           >
-            {[1, 3, 5, 10, 15, 20].map(num => (
-              <option key={num} value={num}>{num}</option>
-            ))}
-          </select>
-        </label>
+            <img src={leftArrow} alt={t.folders.previous} className="mobile-arrow" />
+            <span className="desktop-nav-text">{t.folders.previous}</span>
+          </button>
+          <span className="page-counter">
+            {currentPage + 1} / {pages.length}
+          </span>
+          <button
+            onClick={goToNextPage}
+            disabled={currentPage === pages.length - 1}
+            className="nav-button next-button"
+          >
+            <span className="desktop-nav-text">{t.folders.next}</span>
+            <img src={rightArrow} alt={t.folders.next} className="mobile-arrow" />
+          </button>
+        </div>
+
       </div>
 
-      <div className="text-content" ref={contentRef}>
-        {pages[currentPage]?.map((sentence, index) => (
-          <p key={index} className="text-sentence">
-            {sentence}
-          </p>
-        ))}
-      </div>
-
-      <div className="page-navigation">
-        <button 
-          onClick={goToPrevPage} 
-          disabled={currentPage === 0}
-          className="nav-button prev-button"
-        >
-          <img src={leftArrow} alt={t.folders.previous} className="mobile-arrow" />
-          <span className="desktop-nav-text">{t.folders.previous}</span>
-        </button>
-        <span className="page-counter">
-          {currentPage + 1} / {pages.length}
-        </span>
-        <button 
-          onClick={goToNextPage} 
-          disabled={currentPage === pages.length - 1}
-          className="nav-button next-button"
-        >
-          <span className="desktop-nav-text">{t.folders.next}</span>
-          <img src={rightArrow} alt={t.folders.next} className="mobile-arrow" />
-        </button>
-      </div>
-
-    </div>
-      
     );
   };
 
@@ -266,13 +265,13 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
           <div className='text-area-submodule'>
             {viewMode === 'edit' ? (
               <>
-                <button 
+                <button
                   onClick={handleClearText}
                   className="clear-button"
                 >
                   {t.textPage.clearText}
                 </button>
-                <button 
+                <button
                   onClick={splitTextIntoPages}
                   className="read-mode-button"
                 >
@@ -280,20 +279,20 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
                 </button>
               </>
             ) : (
-              <button 
+              <button
                 onClick={returnToEditMode}
                 className="edit-mode-button mobile-back-button"
               >
-                 <img src={backBtn} alt={t.textPage.editMode}  className="action-icon" />
+                <img src={backBtn} alt={t.textPage.editMode} className="action-icon" />
                 <span>{t.textPage.editMode}</span>
               </button>
 
-              
+
             )}
           </div>
         </div>
-        
-        <div 
+
+        <div
           ref={containerRef}
           onDragOver={handleDragOver}
           onDrop={handleDrop}
@@ -326,7 +325,7 @@ const TextPage = ({ isAuthenticated }: HomeProps) => {
           />
         )}
 
-        <TextSelectionMenu 
+        <TextSelectionMenu
           targetRef={containerRef}
           textAreaRef={textAreaRef}
           onAddCard={handleTextSelection}

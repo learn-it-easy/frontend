@@ -150,3 +150,11 @@
     textTranslation: string;
     isImage: boolean
   }
+
+  export interface Picture {
+    url: string;
+  }
+  
+  export interface PictureResponse {
+    pictures: Picture[];
+  }

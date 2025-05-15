@@ -34,6 +34,17 @@ export const DeleteConfirmationModal: React.FC<DeleteConfirmationModalProps> = (
     };
 }, [isOpen, onConfirm, onClose]);
 
+useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('body-no-scroll');
+    } else {
+      document.body.classList.remove('body-no-scroll');
+    }
+    return () => {
+      document.body.classList.remove('body-no-scroll');
+    };
+  }, [isOpen]);
+
     return (
         <Modal isOpen={isOpen} onClose={onClose} title={t.folders.confirmDeleteTitle}>
             <div className="modal-body">

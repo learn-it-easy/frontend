@@ -110,7 +110,8 @@
     "allCards": "Alle Karten",
     "noFolder": "Kein Ordner",
     "confirmDeleteMessageCard": "Karte mit Wort löschen",
-    "folder": "Ordner"
+    "folder": "Ordner",
+    "customImageUrl":"Link zum Bild"
   },
   "cards": {
     "invalidImageUrl": "Geben Sie eine Bild-URL ein (jpg, png, gif usw.)",
@@ -125,7 +126,8 @@
     "showText": "Text anzeigen",
     "changeCard": "Bearbeiten",
     "placeholder": "Markieren Sie den Text und klicken Sie mit der rechten Maustaste / halten Sie auf dem Telefon gedrückt, um Text zu markieren",
-    "translationError": "Übersetzungsfehler"
+    "translationError": "Übersetzungsfehler",
+    "showImage": "Bild anzeigen"
   },
   "textPage": {
     "title": "Textarbeit",
@@ -143,5 +145,12 @@
   },
   "apiContext": {
     "menuTitle": "Kontextbezogene Vorschläge"
+  },
+  "apiPictures": {
+    "customImageUrl": "Link zum Bild",
+    "placeholder": "Geben Sie den Bildlink ein",
+    "noValidImageFound": "Keine passenden Bilder gefunden",
+    "failedToFetch": "Fehler beim Laden der Bilder",
+    "fetchPictures": "Bilder laden"
   }
 }

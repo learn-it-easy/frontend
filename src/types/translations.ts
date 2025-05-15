@@ -114,6 +114,7 @@ export interface Translation {
     noFolder: string;
     confirmDeleteMessageCard: string;
     folder: string;
+    customImageUrl:string;
   };
 
   cards: {
@@ -130,6 +131,7 @@ export interface Translation {
     changeCard: string;
     placeholder: string;
     translationError: string;
+    showImage: string;
   },
   textPage: {
     title: string;
@@ -147,5 +149,12 @@ export interface Translation {
   },
   apiContext: {
     menuTitle: string;
+  },
+  apiPictures: {
+    customImageUrl: string;
+    placeholder: string;
+    noValidImageFound: string;
+    failedToFetch: string;
+    fetchPictures: string;
   }
 }
