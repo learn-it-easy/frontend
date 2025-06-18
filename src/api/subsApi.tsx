@@ -20,7 +20,7 @@ interface SubtitlesResponse {
   language: string;
   subtitles: Subtitle[];
   message?: string;
-}
+} 
 
 export const fetchSubtitles = async (videoUrl: string): Promise<{
   language: string;
