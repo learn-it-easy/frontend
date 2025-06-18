@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { authApi } from '../api/authApi';
+import { authApi } from '../api/generalApi';
 import { AxiosError } from 'axios';
 import { ApiErrorResponse, LoginProps } from '../types/auth';
 import { useTranslation } from '../hooks/useTranslation';

@@ -12,6 +12,16 @@
   width: 100%;
 }
 
+.video-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1800px;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+}
+
 /* Блокировка скрола при другом окне (модальном)*/
 .body-no-scroll {
   overflow: hidden;
@@ -28,6 +38,13 @@
    max-width: 1200px;
    width: calc(100%);
  }    
+
+ .video-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1600px;
+  width: calc(100%);
+}   
 
   button {
     outline: none;

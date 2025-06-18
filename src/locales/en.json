@@ -53,13 +53,111 @@
     "profile": "Profile",
     "folders": "Folders",
     "add": "Add Word",
-    "text": "Text"
+    "text": "Text",
+    "video": "Video"
   },
   "home": {
-    "welcomeHeader": "Welcome to the foreign language learning web app!",
-    "test": "Learn new words and improve your skills",
+    "welcomeHeader": "Welcome to Learn it easily!",
+    "heroSubtitle": "Your personal assistant in learning foreign languages.",
+    "easyRecording": "Easily record",
+    "and": "and",
+    "repeat": "repeat",
+    "withSRS": "them using an effective spaced repetition system.",
+    "usingApp": "Using \"Learn it easily\", ",
+    "youCanForget": "You can forget about: ",
+    "boring": "boring and ",
+    "notInteresting": "uninteresting learning materials",
+    "forLearning": "for learning, a thousand times relearned and conveniently forgotten words, and word lists recorded by someone that you don't even know where to use!",
+    "you": "You",
+    "areFree": "are free to choose what",
+    "choose": "to choose what",
+    "what": "You read, watch and",
+    "learn": "learn",
+    "your": "You",
+    "noMore": "now ",
+    "noNeed": "no need to",
+    "always": "constantly",
+    "switch": "switch",
+    "toTranslator": "from viewing or reading",
+    "andRecord": "to the translator, and then writing down",
+    "nonameWord": "an unknown word for repetition ",
+    "differentrApp": "in a different app.",
+    "everything": "Everything",
+    "allInOne": "can now be done",
+    "onePlace": "in one place!",
+    "learnLanguage": "Learn the language",
+    "byWatching": " not just by memorizing words recorded by someone, but",
+    "favoriteBloggers": "by watching your favorite bloggers",
+    "andReading": "on YouTube",
+    "interestingTexts": "and reading interesting articles.",
+    "youCan": "You can",
+    "easilyExtract": "easily extract new words",
+    "allFrases": "or whole phrases directly from text and subtitles,",
+    "translateAndSave": "translate them right away",
+    "innerTranslater": "with the built-in translator",
+    "andWriteInOneClick": "and save with one click.",
+    "plusFunctions": " Plus, the functions for selecting contextual sentences and pictures will make your card collection as convenient as possible for memorization.",
+    "organize": "Organize",
+    "systemStorage": "the storage system so that",
+    "asYouLike": "it's convenient for you.",
+    "keepCards": " Keep cards in folders by topics and categories or record everything in one place!",
+    "method": "The method",
+    "intervalInApp": "of spaced repetition used in the app",
+    "allowYou": "allows you",
+    "incredable": "incredibly",
+    "effectivelyLearn": "to effectively learn",
+    "foreign": "a foreign",
+    "language": "language",
+    "forgetAbout": "Forget about",
+    "endlessLoop": "the endless cyclic",
+    "repetition": "repetition",
+    "already": "of already",
+    "memorizedWords": "memorized words!",
+    "methodDescription": "This method will",
+    "often": "more often",
+    "giveYou": "give you those",
+    "forgottenWords": "words that you can't remember.",
+    "butMemorizeOld": " But it also won't forget the already learned ones, showing them at carefully calculated intervals so they definitely stay in memory!",
+    "demonstration": "Demonstration of the application in action",
+    "inDevelopment": "Currently in development",
+    "addingGames": "Adding games for more fun language learning!",
+    "importFrom": "Import recorded cards from",
+    "cardVoicing": "Card voicing so you definitely remember the correct pronunciation!",
+    "sharingDecks": "Adding the ability",
+    "withFriends": "to share card decks with friends",
+    "supportedLanguages": "Supported languages",
+    "languages": [
+      {
+        "flag": "ru.png",
+        "name": "Russian"
+      },
+      {
+        "flag": "en.png",
+        "name": "English"
+      },
+      {
+        "flag": "es.png",
+        "name": "Spanish"
+      },
+      {
+        "flag": "fr.png",
+        "name": "French"
+      },
+      {
+        "flag": "de.png",
+        "name": "German"
+      }             
+    ],
+    "startNow": "Start right now!",
     "registerButton": "Register",
-    "loginButton": "Login"
+    "loginButton": "Login",
+    "contactUs": "You can contact us by email:",
+    "videoNotSupported": "Your browser does not support video.",
+    "feature1Alt": "App demonstration",
+    "feature2Alt": "Content integration",
+    "feature3Alt": "Repetition system",
+    "upcomingAlt": "Upcoming features",
+    "withOneClick": "and save with one click "
   },
   "profile": {
     "errorLoading": "Profile loading error",
@@ -152,5 +250,14 @@
     "noValidImageFound": "No suitable images found",
     "failedToFetch": "Error loading images",
     "fetchPictures": "Load images"
+  },
+  "video": {
+    "failedToFetchSubs": "Failed to load subtitles",
+    "loading": "Loading...",
+    "load": "Load video",
+    "enterURL": "Enter the URL of a video from youtube.com",
+    "invalidURL": "Invalid URL. Must be a video from youtube.com",
+    "subtitles": "Subtitles"
   }
+  
 }

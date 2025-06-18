@@ -1,5 +1,9 @@
 export const SUPPORTED_LANGUAGES = ['ru', 'en', 'es', 'de', 'fr'] as const;
 export type LanguageCode = typeof SUPPORTED_LANGUAGES[number];
+export type Language = {
+  flag: string;
+  name: string;
+};
 
 export interface Translation {
   header: {
@@ -57,12 +61,89 @@ export interface Translation {
     folders: string;
     add: string;
     text: string;
+    video: string;
   };
   home: {
     welcomeHeader: string;
-    test: string;
+    heroSubtitle: string;
+    easyRecording: string;
+    and: string;
+    repeat: string;
+    withSRS: string;
+    usingApp: string;
+    youCanForget: string;
+    boring: string;
+    notInteresting: string;
+    forLearning: string;
+    you: string;
+    areFree: string;
+    choose: string;
+    what: string;
+    learn: string;
+    your: string;
+    noMore: string;
+    noNeed: string;
+    always: string;
+    switch: string;
+    toTranslator: string;
+    andRecord: string;
+    nonameWord: string;
+    differentrApp: string;
+    everything: string;
+    allInOne: string;
+    onePlace: string;
+    learnLanguage: string;
+    byWatching: string;
+    favoriteBloggers: string;
+    andReading: string;
+    interestingTexts: string;
+    youCan: string;
+    easilyExtract: string;
+    allFrases: string;
+    translateAndSave: string;
+    innerTranslater: string;
+    andWriteInOneClick: string;
+    plusFunctions: string;
+    organize: string;
+    systemStorage: string;
+    asYouLike: string;
+    keepCards: string;
+    method: string;
+    intervalInApp: string;
+    allowYou: string;
+    incredable: string;
+    effectivelyLearn: string;
+    foreign: string;
+    language: string;
+    forgetAbout: string;
+    endlessLoop: string;
+    repetition: string;
+    already: string;
+    memorizedWords: string;
+    methodDescription: string;
+    often: string;
+    giveYou: string;
+    forgottenWords: string;
+    butMemorizeOld: string;
+    demonstration: string;  
+    inDevelopment: string;
+    addingGames: string;
+    importFrom: string;
+    cardVoicing: string;
+    sharingDecks: string;
+    withFriends: string;
+    supportedLanguages: string;
+    languages: Language[];
+    startNow: string;
     registerButton: string;
     loginButton: string;
+    contactUs: string;
+    videoNotSupported: string;
+    feature1Alt: string;
+    feature2Alt: string;
+    feature3Alt: string;
+    upcomingAlt: string;
+    withOneClick: string;
   };
   profile: {
     errorLoading: string;
@@ -156,5 +237,13 @@ export interface Translation {
     noValidImageFound: string;
     failedToFetch: string;
     fetchPictures: string;
+  },
+  video: {
+    failedToFetchSubs: string;
+    loading: string;
+    load: string;
+    enterURL: string;
+    invalidURL: string;
+    subtitles: string;
   }
 }

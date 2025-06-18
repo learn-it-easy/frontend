@@ -15,9 +15,6 @@ export const TextSelectionMenu: React.FC<TextSelectionMenuProps> = ({
   const [menuVisible, setMenuVisible] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
   const [selectedText, setSelectedText] = useState('');
-  const [isFormatted, setIsFormatted] = useState(false);
-  const [activeElement, setActiveElement] = useState<HTMLInputElement | HTMLTextAreaElement | null>(null);
-  const [selectionStart, setSelectionStart] = useState(0);
   const menuRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
 
@@ -31,38 +28,50 @@ export const TextSelectionMenu: React.FC<TextSelectionMenuProps> = ({
   useEffect(() => {
     const handleContextMenu = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (!targetRef.current?.contains(target)) return;
+      
+      // клик был внутри targetRef или textAreaRef
+      const isInsideTarget = targetRef.current?.contains(target);
+      const isInsideTextarea = textAreaRef?.current?.contains(target);
+      
+      if (!isInsideTarget && !isInsideTextarea) return;
 
-      if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) {
-        const element = target;
-        const start = element.selectionStart || 0;
-        const end = element.selectionEnd || 0;
-        const text = element.value.substring(start, end);
-
-        if (text) {
-          e.preventDefault();
-          setActiveElement(element);
-          setSelectionStart(start);
-          setSelectedText(text);
-          setMenuPosition({ x: e.clientX, y: e.clientY });
-          setMenuVisible(true);
-        }
-      } else {
+      let selectedText = '';
+      
+      // Обработка textarea
+      if (target instanceof HTMLTextAreaElement) {
+        const start = target.selectionStart || 0;
+        const end = target.selectionEnd || 0;
+        selectedText = target.value.substring(start, end).trim();
+      } 
+      // Обработка обычных элементов
+      else {
         const selection = window.getSelection();
-        const selectedText = selection?.toString().trim() || '';
-  
-        if (selectedText) {
-          e.preventDefault();
-          setSelectedText(selectedText);
-          setMenuPosition({ x: e.clientX, y: e.clientY });
-          setMenuVisible(true);
+        if (!selection || selection.rangeCount === 0) return;
+
+        const range = selection.getRangeAt(0);
+        selectedText = selection.toString().trim();
+
+        // Для многострочных выделений из разных элементов
+        if (range.startContainer !== range.endContainer) {
+          const fragment = range.cloneContents();
+          const div = document.createElement('div');
+          div.appendChild(fragment);
+          selectedText = div.textContent?.trim() || selectedText;
         }
       }
-      
+
+      if (selectedText) {
+        e.preventDefault();
+        setSelectedText(selectedText);
+        setMenuPosition({ x: e.clientX, y: e.clientY });
+        setMenuVisible(true);
+      }
     };
 
-    const handleClickOutside = () => {
-      setMenuVisible(false);
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuVisible(false);
+      }
     };
 
     document.addEventListener('contextmenu', handleContextMenu);
@@ -72,13 +81,14 @@ export const TextSelectionMenu: React.FC<TextSelectionMenuProps> = ({
       document.removeEventListener('contextmenu', handleContextMenu);
       document.removeEventListener('click', handleClickOutside);
     };
-  }, [targetRef]);
+  }, [targetRef, textAreaRef]);
 
   if (!menuVisible) return null;
 
   return (
     <div 
       ref={menuRef}
+      className="context-menu"
       style={{
         position: 'fixed',
         left: `${menuPosition.x}px`,
@@ -92,7 +102,6 @@ export const TextSelectionMenu: React.FC<TextSelectionMenuProps> = ({
       }}
       onClick={(e) => e.stopPropagation()}
     >
-      
       <div 
         style={{ 
           padding: '8px 15px', 

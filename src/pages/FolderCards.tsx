@@ -9,7 +9,7 @@ import {
   UpdateData
 } from '../types/auth';
 import Loader from '../components/Loader';
-import { authApi } from '../api/authApi';
+import { authApi } from '../api/generalApi';
 import { DeleteConfirmationModal } from '../components/DeleteConfirmationModal';
 import { CardReviewModal } from '../components/UpdateConfirmationModal';
 import { useCards } from '../contexts/CardContext';

@@ -53,13 +53,111 @@
     "profile": "Perfil",
     "folders": "Carpetas",
     "add": "Agregar palabra",
-    "text": "Texto"
+    "text": "Texto",
+    "video": "Video"
   },
   "home": {
-    "welcomeHeader": "¡Bienvenido a la aplicación web para aprender idiomas extranjeros!",
-    "test": "Aprende nuevas palabras y mejora tus habilidades",
+    "welcomeHeader": "¡Bienvenido a Learn it easily!",
+    "heroSubtitle": "Tu asistente personal para aprender idiomas extranjeros.",
+    "easyRecording": "Graba fácilmente",
+    "and": "y",
+    "repeat": "repite",
+    "withSRS": "ellos usando un sistema efectivo de repetición espaciada.",
+    "usingApp": "Usando \"Learn it easily\", ",
+    "youCanForget": "Puedes olvidarte de: ",
+    "boring": "materiales aburridos y ",
+    "notInteresting": "poco interesantes para aprender",
+    "forLearning": "para aprender, palabras aprendidas mil veces y convenientemente olvidadas, y listas de palabras que alguien escribió y que ni sabes dónde usar!",
+    "you": "Tú",
+    "areFree": "eres libre de elegir qué",
+    "choose": "elegir qué",
+    "what": "leer, ver y",
+    "learn": "aprender",
+    "your": "Tú",
+    "noMore": "ya no",
+    "noNeed": "necesitas",
+    "always": "constantemente",
+    "switch": "cambiar",
+    "toTranslator": "desde ver o leer",
+    "andRecord": "al traductor, y luego grabar",
+    "nonameWord": "una palabra desconocida para repetir",
+    "differentrApp": "en una aplicación separada.",
+    "everything": "Todo",
+    "allInOne": "ahora se puede hacer",
+    "onePlace": "en un solo lugar!",
+    "learnLanguage": "Aprende el idioma",
+    "byWatching": " no solo memorizando palabras escritas por alguien, sino",
+    "favoriteBloggers": "viendo a tus bloggers favoritos",
+    "andReading": "en YouTube",
+    "interestingTexts": "y leyendo textos interesantes.",
+    "youCan": "Puedes",
+    "easilyExtract": "extraer fácilmente nuevas palabras",
+    "allFrases": "o frases completas directamente del texto y subtítulos,",
+    "translateAndSave": "traducirlas de inmediato",
+    "innerTranslater": "con el traductor incorporado",
+    "andWriteInOneClick": "y guardarlas con un clic.",
+    "plusFunctions": " Además, las funciones para seleccionar oraciones contextuales e imágenes harán que tu colección de tarjetas sea lo más conveniente posible para memorizar.",
+    "organize": "Organiza",
+    "systemStorage": "el sistema de almacenamiento para que",
+    "asYouLike": "sea cómodo para ti.",
+    "keepCards": " Guarda tarjetas en carpetas por temas y categorías o guarda todo en un solo lugar!",
+    "method": "El método",
+    "intervalInApp": "de repetición espaciada usado en la app",
+    "allowYou": "te permite",
+    "incredable": "increíblemente",
+    "effectivelyLearn": "aprender efectivamente",
+    "foreign": "un idioma",
+    "language": "extranjero",
+    "forgetAbout": "Olvídate de",
+    "endlessLoop": "el ciclo infinito",
+    "repetition": "de repetición",
+    "already": "de palabras ya",
+    "memorizedWords": "memoradas!",
+    "methodDescription": "Este método",
+    "often": "más a menudo",
+    "giveYou": "te dará esas",
+    "forgottenWords": "palabras que no puedes recordar.",
+    "butMemorizeOld": " Pero tampoco olvidará las ya aprendidas, mostrándolas en intervalos cuidadosamente calculados para que se queden en la memoria!",
+    "demonstration": "Demostración del funcionamiento de la aplicación",
+    "inDevelopment": "Actualmente en desarrollo",
+    "addingGames": "¡Añadiendo juegos para un aprendizaje de idiomas más divertido!",
+    "importFrom": "Importar tarjetas grabadas desde",
+    "cardVoicing": "Voz en tarjetas para que recuerdes la pronunciación correcta!",
+    "sharingDecks": "Añadiendo la función",
+    "withFriends": "de compartir mazos de tarjetas con amigos",
+    "supportedLanguages": "Idiomas soportados",
+    "languages": [
+      {
+        "flag": "ru.png",
+        "name": "Ruso"
+      },
+      {
+        "flag": "en.png",
+        "name": "Inglés"
+      },
+      {
+        "flag": "es.png",
+        "name": "Español"
+      },
+      {
+        "flag": "fr.png",
+        "name": "Francés"
+      },
+      {
+        "flag": "de.png",
+        "name": "Alemán"
+      }             
+    ],
+    "startNow": "¡Empieza ahora mismo!",
     "registerButton": "Registrarse",
-    "loginButton": "Iniciar sesión"
+    "loginButton": "Iniciar sesión",
+    "contactUs": "Puedes contactarnos por email:",
+    "videoNotSupported": "Tu navegador no soporta video.",
+    "feature1Alt": "Demostración de la app",
+    "feature2Alt": "Integración con contenido",
+    "feature3Alt": "Sistema de repetición",
+    "upcomingAlt": "Funciones próximas",
+    "withOneClick": "y guardarlas con un clic "
   },
   "profile": {
     "errorLoading": "Error al cargar el perfil",
@@ -152,5 +250,14 @@
     "noValidImageFound": "No se encontraron imágenes adecuadas",
     "failedToFetch": "Error al cargar las imágenes",
     "fetchPictures": "Cargar imágenes"
+  },
+  "video": {
+    "failedToFetchSubs": "Error al cargar los subtítulos",
+    "loading": "Cargando...",
+    "load": "Cargar video",
+    "enterURL": "Introduce la URL de un video de youtube.com",
+    "invalidURL": "URL inválida. Debe ser un video de youtube.com",
+    "subtitles": "Subtítulos"
   }
+  
 }

@@ -147,6 +147,23 @@ const Navbar = ({ isAuthenticated, onLogout }: HeaderProps) => {
               {t.navbar.text}
             </NavLink>
           </li>
+
+          <li className="nav-item">
+            <NavLink
+              exact
+              to="/video"
+              className="nav-link"
+              activeClassName="active"
+              onClick={() => isMobile && setIsOpen(false)}
+              isActive={(match) => {
+                if (!match) return false;
+                return isMobile ? match.isExact : true;
+              }}
+            >
+              {t.navbar.video}
+            </NavLink>
+          </li>
+
         </ul>
 
       </nav>

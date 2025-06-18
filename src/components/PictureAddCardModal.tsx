@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
-import { authApi } from '../api/authApi';
+import { authApi } from '../api/generalApi';
 import { LanguageContext } from '../contexts/LanguageContext';
 import { ApiErrorResponse, Folder } from '../types/auth';
 import { AxiosError } from 'axios';

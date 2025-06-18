@@ -1,0 +1,292 @@
+.video-page {
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 5rem;
+  margin-left: 13.2rem;
+}
+
+
+.video-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.video-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.video-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.video-button:hover {
+  background-color: var(--blue);
+}
+
+.video-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #d32f2f;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #ffebee;
+  border-radius: 4px;
+}
+
+.video-container {
+  display: flex;
+  gap: 20px;
+}
+
+.video-player {
+  flex: 2;
+}
+
+.youtube-iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 4px;
+}
+
+.subtitles-container {
+  flex: 1;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 4px;
+  border-radius: 0.5rem;
+  background: #f9f9f9;
+}
+
+.subtitles-textarea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.subtitle-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: white;
+  border: 1px solid #eee;
+  transition: all 0.2s;
+  border-radius: 0.25rem;
+}
+
+.subtitle-item.active {
+  background: var(--light-blue);
+  border-left: 3px solid var(--blue);
+}
+
+.subtitle-time {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.subtitle-text {
+  width: 100%;
+  min-height: 60px;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+  font-family: inherit;
+  background: white;
+  line-height: 2;
+}
+
+
+video {
+  width: 48rem;
+  height: 30rem;
+}
+
+
+#youtube-player {
+  
+  width: 50vw;
+  height: calc(50vw*(10/17.8));
+
+}
+
+.video-player {
+  flex: 2;
+  position: relative;
+  padding-bottom: 62.5%;
+  height: 0;
+  overflow: hidden;
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 16/10;
+  margin: 0 auto;
+}
+
+.youtube-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.subtitles-container {
+  flex: 1;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 4px;
+  background: #f9f9f9;
+}
+
+.no-subtitles, .no-active-subtitles {
+  padding: 20px;
+  text-align: center;
+  color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .video-container {
+    flex-direction: column;
+  }
+  
+  .video-player, .subtitles-container {
+    width: 100%;
+  }
+  
+  .youtube-iframe {
+    height: 300px;
+  }
+
+  .video-page {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 4rem;
+    padding: 0.75rem;
+  }
+  .video-form {
+    flex-direction: column;
+  }
+  
+  .video-button {
+    width: 100%;
+  }
+
+  .video-content {
+   flex: 1;
+   padding: 2rem;
+   max-width: 1600px;
+   width: calc(100%);
+ }   
+ 
+   button {
+     outline: none;
+     -webkit-tap-highlight-color: transparent;
+   }
+ 
+   button:focus {
+     outline: none;
+   }
+ 
+ 
+ 
+   .video-content {
+     flex: 1 1;
+     padding: 2rem;
+     max-width: 100%;
+     width: calc(100%);
+   }
+ 
+ 
+ 
+   .video-page {
+     margin-left: 0.1rem;
+     margin-right: 0.1rem;
+     margin-top: 8rem;
+     padding: 0.75rem;
+   }
+ 
+   .video-player {
+     flex: 2 1;
+     position: relative;
+     padding-bottom: 62.5%;
+     height: 0;
+     overflow: hidden;
+     min-width: 0;
+     width: auto;
+     aspect-ratio: 16/10;
+     margin: 0 auto;
+       margin-left: auto;
+     rotate: 90deg;
+     margin-left: -6rem;
+   }
+ 
+   #youtube-player {
+     width: 50vh;
+     height: calc(50vh*(10/17.8));
+   }
+ 
+ 
+   .subtitles-container {
+     flex: 1 1;
+     max-height: 500px;
+     overflow-y: auto;
+     border: 1px solid #ddd;
+     padding: 15px;
+     border-radius: 4px;
+     background: #f9f9f9;
+     rotate: 90deg;
+     margin-top: 3rem;
+   }
+ 
+   .subtitle-text {
+     margin: 0;
+     margin-bottom: 0px;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Roboto', sans-serif;
+     font-size: 18px;
+     font-weight: bold;
+     padding: 4px;
+   }
+ 
+ }
+

@@ -1,3 +1,7 @@
+.add-card-modal {
+  z-index: 1002;
+}
+
 .button-group {
   display: flex;
   justify-content: space-between;

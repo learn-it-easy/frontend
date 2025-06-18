@@ -1,0 +1,38 @@
+@media (max-width: 767px) {
+  body.video-page-mobile {
+    overflow-x: hidden;
+  }
+
+  body.video-page-mobile .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    rotate: 0;
+    z-index: 999;
+  }
+
+  body.video-page-mobile .modal-container {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 70vh;
+    height: 90vw;
+    rotate: 90deg;
+    transform-origin: left top;
+    background: white;
+    margin-top: 23vh;
+    margin-left: -2vw;
+    z-index: 1000;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+
+  body.video-page-mobile .context-menu {
+    position: fixed;
+    left: 100%;
+    top: 50px;
+    rotate: 90deg;
+    transform-origin: left top;
+    z-index: 1001;
+  }
+}

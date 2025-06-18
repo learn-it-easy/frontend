@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
-import { authApi } from '../api/authApi';
+import { authApi } from '../api/generalApi';
 import { AxiosError } from 'axios';
 import Loader from './Loader';
 import { isValidImageUrl } from '../utils/urlValidation';

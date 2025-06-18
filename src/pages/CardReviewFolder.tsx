@@ -4,7 +4,7 @@ import { DeleteConfirmationModal } from '../components/DeleteConfirmationModal';
 import { LanguageContext } from '../contexts/LanguageContext';
 import { useTranslation } from '../hooks/useTranslation';
 import { ApiErrorResponse, Card, Folder, HomeProps, UpdateData } from '../types/auth';
-import { authApi, cardService } from '../api/authApi';
+import { authApi, cardService } from '../api/generalApi';
 import Loader from '../components/Loader';
 import { useHistory, useLocation } from 'react-router-dom';
 import { CardReviewModal } from '../components/UpdateConfirmationModal';
